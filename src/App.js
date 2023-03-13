@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles/color.scss";
+import "./styles/font.scss";
+import "./styles/global.scss";
+import "./styles/width.scss";
 
-function App() {
+import React from "react";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import LayoutComponent from "./components/organisms/LayoutComponent";
+
+const theme = createTheme({
+  typography: {
+    fontFamily: "'Roboto', sans-serif",
+  },
+});
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <LayoutComponent />
+    </ThemeProvider>
   );
-}
+};
 
 export default App;

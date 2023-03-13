@@ -1,0 +1,49 @@
+/* scrollbar styles */
+/* width  */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+/* Track  */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+/* Handle  */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+/* Handle on hover  */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+/* Hide scrollbar for IE, Edge and Firefox  */
+.hide-scrollbar {
+  -ms-overflow-style: none !important;
+  /* IE and Edge  */
+  scrollbar-width: none !important;
+  /* Firefox  */
+}
+
+/* cursor pointer */
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+/* overflow */
+.overflowX-scroll {
+  overflow-x: scroll;
+}
+.overflowX-hidden {
+  overflow-x: hidden;
+}
+.overflowY-scroll {
+  overflow-y: scroll;
+}
+.overflowY-hidden {
+  overflow-y: hidden;
+}
