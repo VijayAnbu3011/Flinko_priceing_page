@@ -47,3 +47,35 @@
 .overflowY-hidden {
   overflow-y: hidden;
 }
+
+.img{
+  background-image: linear-gradient(180deg, #eee, #fff 100px, #fff);
+}
+
+/* Mobile */
+.container1 {
+  padding: 0px 2rem 0px;
+}
+
+/* Tablet */
+@media (min-width:600px) {
+  .container1{
+    padding: 0px 4rem 0px;
+  }
+}
+@media (min-width:700px) {
+  .container1{
+    padding: 0px 1rem 0px;
+  }
+}
+@media (min-width:900px) {
+  .container1{
+    padding: 0px 2rem 0px;
+  }
+}
+/* Desktop */
+@media (min-width:900px) {
+  .container1 {
+    padding: 0px 8rem 0px;
+  }
+}

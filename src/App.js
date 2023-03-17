@@ -6,6 +6,8 @@ import "./styles/width.scss";
 import React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import LayoutComponent from "./components/organisms/LayoutComponent";
+import { ToastProvider } from "react-toast-notifications";
+import CustomToast from "./components/atoms/CustomToast";
 
 const theme = createTheme({
   typography: {
@@ -16,7 +18,9 @@ const theme = createTheme({
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <LayoutComponent />
+      <ToastProvider components={CustomToast} placement="top-right">
+        <LayoutComponent />
+      </ToastProvider>
     </ThemeProvider>
   );
 };

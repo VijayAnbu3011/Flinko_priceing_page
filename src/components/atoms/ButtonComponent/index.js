@@ -71,7 +71,6 @@ const ButtonComponent = ({
     >
       {label}
       {children}
-      {children}
     </Button>
   );
 };
