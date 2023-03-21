@@ -5,6 +5,7 @@ import Pricing from "./pricing";
 
 const Home = () => {
   const [stateChange, setStateChange] = useState(false);
+
   return (
     <div className="img">
       <div className="container py-3">

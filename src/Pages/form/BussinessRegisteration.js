@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import InputBoxComponent from "../../components/atoms/InputBoxComponent";
 import SimpleDropdownComponent from "../../components/atoms/SimpleDropDownComponent";
 import ButtonComponent from "../../components/atoms/ButtonComponent";
-import { getAllCompanies } from "../../services/pricing";
+import { getAllCompanies, postBusinessData } from "../../services/pricing";
 import { useToasts } from "react-toast-notifications";
 const initialState = {
   companyName: "",
@@ -14,7 +14,12 @@ const initialState = {
   email: "",
   mobileNumber: "",
 };
-function BussinessRegisteration({ setStateChange, setRegisterChange }) {
+function BussinessRegisteration({
+  setStateChange,
+  setRegisterChange,
+  editData,
+  getData = () => {},
+}) {
   const handleClick = () => {
     setStateChange(false);
   };
@@ -101,7 +106,22 @@ function BussinessRegisteration({ setStateChange, setRegisterChange }) {
       addToast(error?.response?.data?.message, { appearance: "error" });
     }
   };
-
+  useEffect(() => {
+    if (Object.keys(editData).length > 0) {
+      console.log(editData);
+      setFormData({
+        companyName: { id: editData.companyId, label: editData.companyName },
+        gstin: editData.gstin,
+        cin: editData.cin,
+        noOfEmployees: editData.noOfEmp,
+        mobileNumber: editData.companyMobileNumber,
+        pan: editData.pan,
+        email: editData.companyEmailId,
+      });
+    } else {
+      setFormData({ ...initialState });
+    }
+  }, [editData]);
   useEffect(() => {
     getCompanyData();
   }, []);
@@ -110,12 +130,30 @@ function BussinessRegisteration({ setStateChange, setRegisterChange }) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = () => {
-    setRegisterChange(true);
-    // let err = validateFields();
-    // if (err) {
-
-    // }
+  const handleSubmit = async () => {
+    let err = validateFields();
+    if (err) {
+      const payload = {
+        companyName: formData.companyName.label,
+        pan: formData.pan,
+        gstin: formData.gstin,
+        cin: formData.cin,
+        noOfEmp: formData.noOfEmployees,
+        companyEmailId: formData.email,
+        companyMobileNumber: formData.mobileNumber,
+      };
+      let { data, errRes } = await postBusinessData(
+        formData.companyName.id,
+        payload
+      );
+      if (data) {
+        setRegisterChange(true);
+        getData(data.data);
+        addToast(data.message, { appearance: "success" });
+      } else {
+        addToast(errRes.message, { appearance: "error" });
+      }
+    }
   };
   return (
     <>
@@ -157,6 +195,7 @@ function BussinessRegisteration({ setStateChange, setRegisterChange }) {
                       options={allCompaniesArray}
                       placeholder="Select/Add Company"
                       showAddCompanies
+                      value={formData.companyName}
                       showInputComponent={showInputComponent}
                       setShowInputComponent={setShowInputComponent}
                       addBtnClick={() => {

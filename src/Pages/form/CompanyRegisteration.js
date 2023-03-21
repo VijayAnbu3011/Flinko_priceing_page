@@ -11,6 +11,8 @@ import ButtonComponent from "../../components/atoms/ButtonComponent";
 import InputBoxComponent from "../../components/atoms/InputBoxComponent";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import CheckBoxComponent from "../../components/atoms/CheckBoxComponent";
+import { useToasts } from "react-toast-notifications";
+import { postCompanyData } from "../../services/pricing";
 const initialState = {
   employeeId: "",
   firstName: "",
@@ -97,10 +99,25 @@ function CompanyRegisteration({ setRegisterChange }) {
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
-  const handleSubmit = () => {
+  const { addToast } = useToasts();
+  const handleSubmit = async () => {
     let err = validateFields();
     if (err) {
+      const payload = {
+        employeeId: formData.employeeId,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        officialEmailId: formData.emailId,
+        mobileNumber: formData.mobileNumber,
+        designationName: formData.designation,
+      };
+      let { data, errRes } = await postCompanyData(payload);
+      if (data) {
+        setRegisterChange(true);
+        addToast(data.message, { appearance: "success" });
+      } else {
+        addToast(errRes.message, { appearance: "error" });
+      }
     }
   };
   return (

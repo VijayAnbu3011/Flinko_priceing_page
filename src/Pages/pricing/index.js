@@ -1,14 +1,16 @@
 import { Box, CardContent, Paper, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { getPlan } from "../../services/pricing";
+import { getPlan, postStatus } from "../../services/pricing";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ButtonComponent from "../../components/atoms/ButtonComponent";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { useToasts } from "react-toast-notifications";
 
 function Pricing({ setStateChange }) {
   const [state, setState] = useState("Silver");
   const [plan, setPlan] = useState({});
   const [planDetails, setPlanDetails] = useState([]);
+  const { addToast } = useToasts();
 
   useEffect(() => {
     getPlanDetail();
@@ -39,8 +41,17 @@ function Pricing({ setStateChange }) {
     }
   };
 
-  const handleClick = () => {
-    setStateChange(true);
+  const handleClick = async () => {
+    const payload = {
+      planName: state,
+    };
+    let { data, errRes } = await postStatus(payload);
+    if (data) {
+      setStateChange(true);
+      addToast(data.message, { appearance: "success" });
+    } else {
+      addToast(errRes.message, { appearance: "error" });
+    }
   };
 
   return (

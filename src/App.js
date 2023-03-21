@@ -18,7 +18,12 @@ const theme = createTheme({
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <ToastProvider components={CustomToast} placement="top-right">
+      <ToastProvider
+        components={{ Toast: CustomToast }}
+        placement="top-right"
+        autoDismiss
+        autoDismissTimeout={2000}
+      >
         <LayoutComponent />
       </ToastProvider>
     </ThemeProvider>
