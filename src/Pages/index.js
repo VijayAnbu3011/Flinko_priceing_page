@@ -1,20 +1,19 @@
-import React, { useState } from "react";
-import Form from "./form";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { RouterComponent } from "../routes";
+
 import Navbar from "./navbar";
-import Pricing from "./pricing";
 
 const Home = () => {
-  const [stateChange, setStateChange] = useState(false);
-
   return (
     <div className="img">
       <div className="container py-3">
         <Navbar />
-        {stateChange === false ? (
-          <Pricing setStateChange={setStateChange} />
-        ) : (
-          <Form setStateChange={setStateChange} />
-        )}
+        <BrowserRouter>
+          <Routes>
+            <Route path="*" element={<RouterComponent />} />
+            <Route path="/" element={<Navigate to="/pricing" replace />} />
+          </Routes>
+        </BrowserRouter>
       </div>
     </div>
   );

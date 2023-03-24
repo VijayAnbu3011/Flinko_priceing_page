@@ -3,8 +3,13 @@ import React, { useEffect, useState } from "react";
 import InputBoxComponent from "../../components/atoms/InputBoxComponent";
 import SimpleDropdownComponent from "../../components/atoms/SimpleDropDownComponent";
 import ButtonComponent from "../../components/atoms/ButtonComponent";
-import { getAllCompanies, postBusinessData } from "../../services/pricing";
+import {
+  BusinessData,
+  getAllCompanies,
+  postBusinessData,
+} from "../../services/pricing";
 import { useToasts } from "react-toast-notifications";
+import { useNavigate } from "react-router-dom";
 const initialState = {
   companyName: "",
   gstin: "",
@@ -14,21 +19,16 @@ const initialState = {
   email: "",
   mobileNumber: "",
 };
-function BussinessRegisteration({
-  setStateChange,
-  setRegisterChange,
-  editData,
-  getData = () => {},
-}) {
-  const handleClick = () => {
-    setStateChange(false);
-  };
+function BussinessRegisteration() {
+  const navigate = useNavigate();
   const [allCompaniesArray, setAllCompaniesArray] = useState([
     {
       id: "",
       label: "",
     },
   ]);
+  const [editData, setEditData] = useState({});
+
   const { addToast } = useToasts();
   const [formData, setFormData] = useState({
     companyName: { id: 0, label: "" },
@@ -39,6 +39,21 @@ function BussinessRegisteration({
     email: "",
     mobileNumber: "",
   });
+  const getData = async () => {
+    let { data, errRes } = await BusinessData();
+    if (data) {
+      if (!data.error) {
+        setEditData(data.data);
+      } else {
+        setEditData({});
+      }
+    } else if (errRes) {
+      setEditData({});
+    }
+  };
+  useEffect(() => {
+    getData();
+  }, []);
   const [formDataErr, setformDataErr] = useState(initialState);
 
   const validateFields = () => {
@@ -106,26 +121,29 @@ function BussinessRegisteration({
       addToast(error?.response?.data?.message, { appearance: "error" });
     }
   };
+  console.log(editData);
   useEffect(() => {
     if (Object.keys(editData).length > 0) {
-      console.log(editData);
       setFormData({
-        companyName: { id: editData.companyId, label: editData.companyName },
-        gstin: editData.gstin,
-        cin: editData.cin,
-        noOfEmployees: editData.noOfEmp,
-        mobileNumber: editData.companyMobileNumber,
-        pan: editData.pan,
-        email: editData.companyEmailId,
+        companyName: { id: editData?.companyId, label: editData?.companyName },
+        gstin: editData?.gstin,
+        cin: editData?.cin,
+        noOfEmployees: editData?.noOfEmp,
+        mobileNumber: editData?.companyMobileNumber,
+        pan: editData?.pan,
+        email: editData?.companyEmailId,
       });
     } else {
       setFormData({ ...initialState });
     }
   }, [editData]);
+
   useEffect(() => {
     getCompanyData();
   }, []);
+
   const [showInputComponent, setShowInputComponent] = useState(false);
+
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -147,13 +165,16 @@ function BussinessRegisteration({
         payload
       );
       if (data) {
-        setRegisterChange(true);
         getData(data.data);
         addToast(data.message, { appearance: "success" });
+        navigate("/companyregisteration");
       } else {
         addToast(errRes.message, { appearance: "error" });
       }
     }
+  };
+  const handleClick = () => {
+    navigate("/pricing");
   };
   return (
     <>

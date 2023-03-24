@@ -13,6 +13,7 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import CheckBoxComponent from "../../components/atoms/CheckBoxComponent";
 import { useToasts } from "react-toast-notifications";
 import { postCompanyData } from "../../services/pricing";
+import { useNavigate } from "react-router-dom";
 const initialState = {
   employeeId: "",
   firstName: "",
@@ -22,10 +23,12 @@ const initialState = {
   designation: "",
   agree: "",
 };
-function CompanyRegisteration({ setRegisterChange }) {
+function CompanyRegisteration() {
+  const navigate = useNavigate();
   const handleClick = () => {
-    setRegisterChange(false);
+    navigate("/bussinessregisteration");
   };
+
   const [agree, setAgree] = useState(true);
   const [formData, setFormData] = useState({
     employeeId: "",
@@ -113,13 +116,16 @@ function CompanyRegisteration({ setRegisterChange }) {
       };
       let { data, errRes } = await postCompanyData(payload);
       if (data) {
-        setRegisterChange(true);
         addToast(data.message, { appearance: "success" });
+        navigate("/otppage");
+        if (data.error) {
+        }
       } else {
         addToast(errRes.message, { appearance: "error" });
       }
     }
   };
+
   return (
     <>
       <Box className="px-1 px-sm-2 px-md-5">
@@ -241,7 +247,9 @@ function CompanyRegisteration({ setRegisterChange }) {
                   muiProps="m-3"
                   variant="outlined"
                   disabled={agree}
-                  onBtnClick={handleSubmit}
+                  onBtnClick={() => {
+                    handleSubmit();
+                  }}
                 />
               </Grid>
             </CardContent>

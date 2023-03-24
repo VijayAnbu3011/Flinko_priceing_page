@@ -76,6 +76,30 @@ const postStatus = async (payload) => {
       return { errRes };
     });
 };
+const verifyOtp = async (payload) => {
+  return serviceUtil
+    .post(`employee/verify`, payload)
+    .then((res) => {
+      const data = res && res.data;
+      return { data };
+    })
+    .catch((err) => {
+      const errRes = err && err.response && err.response.data;
+      return { errRes };
+    });
+};
+const resendOtpForRegister = async (payload) => {
+  return serviceUtil
+    .post(`employee/registration-resend-otp`, payload)
+    .then((res) => {
+      const data = res && res.data;
+      return { data };
+    })
+    .catch((err) => {
+      const errRes = err && err.response && err.response.data;
+      return { errRes };
+    });
+};
 
 export {
   getPlan,
@@ -84,4 +108,6 @@ export {
   postCompanyData,
   BusinessData,
   postStatus,
+  verifyOtp,
+  resendOtpForRegister,
 };

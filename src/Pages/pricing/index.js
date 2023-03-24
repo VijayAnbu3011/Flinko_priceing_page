@@ -3,14 +3,15 @@ import React, { useEffect, useState } from "react";
 import { getPlan, postStatus } from "../../services/pricing";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ButtonComponent from "../../components/atoms/ButtonComponent";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useToasts } from "react-toast-notifications";
+import { useNavigate } from "react-router-dom";
 
-function Pricing({ setStateChange }) {
+function Pricing() {
   const [state, setState] = useState("Silver");
   const [plan, setPlan] = useState({});
   const [planDetails, setPlanDetails] = useState([]);
   const { addToast } = useToasts();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getPlanDetail();
@@ -19,12 +20,13 @@ function Pricing({ setStateChange }) {
   const handlePlanChange = (plan) => {
     setState(plan);
   };
+  7;
 
   const getPlanDetail = async () => {
     let { data } = await getPlan();
     if (data) {
       let tempArr = {};
-      data.data.map((item) => {
+      data?.data?.map((item) => {
         tempArr = {
           ...tempArr,
           [item.planName]: {
@@ -40,15 +42,14 @@ function Pricing({ setStateChange }) {
       setPlan(tempArr);
     }
   };
-
   const handleClick = async () => {
     const payload = {
       planName: state,
     };
     let { data, errRes } = await postStatus(payload);
     if (data) {
-      setStateChange(true);
       addToast(data.message, { appearance: "success" });
+      navigate("/bussinessregisteration");
     } else {
       addToast(errRes.message, { appearance: "error" });
     }
