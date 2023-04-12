@@ -20,7 +20,6 @@ function Pricing() {
   const handlePlanChange = (plan) => {
     setState(plan);
   };
-  7;
 
   const getPlanDetail = async () => {
     let { data } = await getPlan();
@@ -49,6 +48,7 @@ function Pricing() {
     let { data, errRes } = await postStatus(payload);
     if (data) {
       addToast(data.message, { appearance: "success" });
+      localStorage.setItem("planName", state);
       navigate("/bussinessregisteration");
     } else {
       addToast(errRes.message, { appearance: "error" });

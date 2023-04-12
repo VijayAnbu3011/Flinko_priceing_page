@@ -2,15 +2,89 @@ import { Box, Grid, Paper, Typography } from "@mui/material";
 import React, { useState } from "react";
 import ButtonComponent from "../../components/atoms/ButtonComponent";
 import InputBoxComponent from "../../components/atoms/InputBoxComponent";
+import { useToasts } from "react-toast-notifications";
+import { useLocation, useNavigate } from "react-router-dom";
+import { completeTheRegistration } from "../../services/pricing";
+
+let errObj = {
+  password: "",
+  confirmPassword: "",
+};
 
 function SetPassword() {
   const [formData, setFormData] = useState({
     password: "",
     confirmPassword: "",
   });
+  const { state } = useLocation();
+  const [error, setError] = useState(errObj);
+  const navigate = useNavigate();
+  const { addToast } = useToasts();
+
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~])[A-Za-z\d!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]{8,16}$/;
+
+  const handleError = () => {
+    errObj = {
+      password: "",
+      confirmPassword: "",
+    };
+    let formError = false;
+    if (formData.password === "") {
+      formError = true;
+      errObj.password = "This field is required";
+    }
+
+    if (formData.confirmPassword === "") {
+      formError = true;
+      errObj.confirmPassword = "This field is required";
+    }
+
+    if (formData.password !== "" && !passwordRegex.test(formData.password)) {
+      formError = true;
+      errObj.password =
+        "Password should contain minimum 8 and maximum 16 characters, at least one uppercase letter, one lowercase letter, one number and one special character";
+    }
+
+    if (
+      formData.password !== formData.confirmPassword &&
+      formData.confirmPassword !== ""
+    ) {
+      formError = true;
+      errObj.confirmPassword = "Password does not match";
+    }
+
+    setError(errObj);
+
+    return formError;
+  };
+  const completeRegistrationFully = async () => {
+    const err = handleError();
+    if (!err) {
+      const payload = {
+        employeeId: state?.employeeId,
+        newPassword: formData.password,
+        confirmPassword: formData.confirmPassword,
+      };
+      const { data, errRes } = await completeTheRegistration(payload);
+      if (data) {
+        if (data.error) {
+          addToast(data.message, { appearance: "error" });
+        } else {
+          localStorage.setItem("companyId", data?.data?.companyId);
+          addToast(data.message, { appearance: "success" });
+          navigate("/checkout");
+        }
+      } else {
+        addToast(errRes.message, { appearance: "error" });
+      }
+    }
+  };
+
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
   return (
     <Grid
       container
@@ -48,6 +122,7 @@ function SetPassword() {
             name="password"
             value={formData.password}
             onChange={handleInputChange}
+            errorText={error.password}
           />
           <InputBoxComponent
             textLabel="Confirm Password"
@@ -57,6 +132,7 @@ function SetPassword() {
             name="confirmPassword"
             value={formData.confirmPassword}
             onChange={handleInputChange}
+            errorText={error.confirmPassword}
           />
         </Box>
         <Box
@@ -69,7 +145,7 @@ function SetPassword() {
           <ButtonComponent
             label="SUBMIT"
             fullWidth
-            // onBtnClick={handleSubmit}
+            onBtnClick={completeRegistrationFully}
           ></ButtonComponent>
         </Box>
       </Paper>

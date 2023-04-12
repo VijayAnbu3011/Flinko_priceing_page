@@ -121,7 +121,6 @@ function BussinessRegisteration() {
       addToast(error?.response?.data?.message, { appearance: "error" });
     }
   };
-  console.log(editData);
   useEffect(() => {
     if (Object.keys(editData).length > 0) {
       setFormData({

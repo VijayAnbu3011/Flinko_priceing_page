@@ -7,6 +7,9 @@ const Home = () => {
   return (
     <div className="img">
       <div className="container py-3">
+        <div id="loader" style={{ display: "none" }}>
+          <div className="loader"></div>
+        </div>
         <Navbar />
         <BrowserRouter>
           <Routes>

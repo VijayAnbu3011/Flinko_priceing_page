@@ -1,4 +1,5 @@
 import BussinessRegisteration from "../../Pages/form/BussinessRegisteration";
+import CheckoutPage from "../../Pages/form/Checkout";
 import CompanyRegisteration from "../../Pages/form/CompanyRegisteration";
 import OptPage from "../../Pages/form/OptPage";
 import SetPassword from "../../Pages/form/SetPassword";
@@ -24,6 +25,10 @@ const websiteRouteObject = [
   {
     element: <SetPassword />,
     path: "/setpassword",
+  },
+  {
+    element: <CheckoutPage />,
+    path: "/checkout",
   },
 ];
 

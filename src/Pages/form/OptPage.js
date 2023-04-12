@@ -1,6 +1,6 @@
 import { Box, Grid, Paper, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
 import ButtonComponent from "../../components/atoms/ButtonComponent";
 import OtpBoxes from "../../components/molecules/OtpBoxes";
@@ -12,6 +12,7 @@ function OptPage() {
   const [thirdNumber, setThirdNumber] = useState("");
   const [fourthNumber, setFourthNumber] = useState("");
   const navigate = useNavigate();
+  const { state } = useLocation();
 
   const { addToast } = useToasts();
   const [otpError, setOtpError] = useState("");
@@ -29,12 +30,11 @@ function OptPage() {
     }
     return otpErr;
   };
-  console.log(otpError);
   const verifyTheOtp = async () => {
     const err = handleError();
     if (!err) {
       const paylaod = {
-        employeeId: `${localStorage.getItem("empId")}`,
+        employeeId: state?.employeeId,
         otp: `${firstNumber}${secondNumber}${thirdNumber}${fourthNumber}`,
       };
 
@@ -44,7 +44,11 @@ function OptPage() {
           addToast(data.message, { appearance: "error" });
         } else {
           addToast(data.message, { appearance: "success" });
-          navigate("/setpassword");
+          navigate("/setpassword", {
+            state: {
+              employeeId: state?.employeeId,
+            },
+          });
         }
       } else {
         addToast(error?.response?.data?.message, { appearance: "error" });
@@ -87,7 +91,7 @@ function OptPage() {
 
   const resendTheOtp = async () => {
     const payload = {
-      employeeId: localStorage.getItem("empId"),
+      employeeId: state?.employeeId,
     };
     const { data, error } = await resendOtpForRegister(payload);
     if (data) {
