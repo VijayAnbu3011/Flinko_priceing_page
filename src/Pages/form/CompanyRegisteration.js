@@ -116,9 +116,16 @@ function CompanyRegisteration() {
       };
       let { data, errRes } = await postCompanyData(payload);
       if (data) {
+        const currentTime = new Date();
+        localStorage.setItem("otpSentTime", currentTime.getTime());
         addToast(data.message, { appearance: "success" });
-        navigate("/otppage");
+        navigate("/otppage", {
+          state: {
+            employeeId: formData.employeeId,
+          },
+        });
         if (data.error) {
+          addToast(data.message, { appearance: "error" });
         }
       } else {
         addToast(errRes.message, { appearance: "error" });

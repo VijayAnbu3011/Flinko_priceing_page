@@ -1,8 +1,8 @@
 import axios from "axios";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
 
-// const baseURL = `${process.env.REACT_APP_DOMAIN}`;
-const baseURL = `http://10.10.20.255:9191/api/v1/`;
+const baseURL = `${process.env.REACT_APP_DOMAIN}`;
+// const baseURL = `http://10.10.20.109:9191/api/v1/`;
 
 const axiosInstance = axios.create({
   baseURL,
@@ -15,6 +15,8 @@ const getVisitorId = async () => {
 };
 
 axiosInstance.interceptors.request.use(async (config) => {
+  document.getElementById("loader").classList.add("loadContainer");
+
   config.headers = {
     "content-type": "application/json",
     terminalId: await getVisitorId(),
@@ -22,5 +24,16 @@ axiosInstance.interceptors.request.use(async (config) => {
   };
   return config;
 });
+
+axiosInstance.interceptors.response.use(
+  async (response) => {
+    document.getElementById("loader").classList.remove("loadContainer");
+    return response;
+  },
+  async (error) => {
+    document.getElementById("loader").classList.remove("loadContainer");
+    return Promise.reject(error);
+  }
+);
 
 export { axiosInstance };
