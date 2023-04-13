@@ -15,6 +15,7 @@ function Pricing() {
 
   useEffect(() => {
     getPlanDetail();
+    localStorage.clear()
   }, []);
 
   const handlePlanChange = (plan) => {

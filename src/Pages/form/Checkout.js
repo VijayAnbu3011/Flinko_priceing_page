@@ -9,10 +9,12 @@ import {
   paymentVerification,
   postCheckout,
 } from "../../services/pricing";
+import { useNavigate } from "react-router-dom";
 
 function CheckoutPage() {
   const { addToast } = useToasts();
   const [formData, setFormData] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     updateData();
@@ -20,8 +22,8 @@ function CheckoutPage() {
 
   const updateData = async () => {
     let payload = {
-      companyId: localStorage.getItem("planName"),
-      planName: localStorage.getItem("companyId"),
+      companyId: localStorage.getItem("companyId"),
+      planName: localStorage.getItem("planName"),
     };
     let { data, errRes } = await postCheckout(payload);
     if (data) {
@@ -35,6 +37,7 @@ function CheckoutPage() {
         currencyCode: data?.data?.currencyCode,
         amount: data?.data?.maxTotalAmount,
         companyId: data?.data?.companyId,
+        employeeInfoId: data?.data?.employeeInfoId,
       });
     } else {
       setFormData({});
@@ -84,13 +87,15 @@ function CheckoutPage() {
                 razorpayOrderId: response.razorpay_order_id,
                 razorpaySignature: response.razorpay_signature,
                 companyId: formData.companyId,
-                planName: formData.planName,
+                planName: formData.PlanName,
+                employeeInfoId: formData.employeeInfoId,
                 totalAmount: formData.amount.toString(),
               };
 
               const { data, errRes } = await paymentVerification(verifyPayload);
               if (data) {
                 addToast(data.message, { appearance: "success" });
+                navigate("/");
               } else {
                 addToast(errRes.message || "ERROR", { appearance: "error" });
               }
