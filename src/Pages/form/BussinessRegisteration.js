@@ -90,22 +90,23 @@ function BussinessRegisteration() {
       errObj.pan = "Enter Valid Pancard Number";
     }
 
-    if (!formData.gstin) {
-      errObj.gstin = "This Field is Required";
-    } else if (
-      !/^[0-9]{2}([A-Z]{3}[P,C,H,A,B,G,J,L,F,T][A-Z][0-9]{4}[A-Z])[0-9][Z][0-9]$/.test(
-        formData.gstin
-      )
-    ) {
-      errObj.gstin = "Enter Valid GSTIN Number ";
-      //GSTIN NUMBER eg:(15CKTPB7841R5Z5)
+    if (formData.gstin) {
+      if (
+        !/^[0-9]{2}([A-Z]{3}[P,C,H,A,B,G,J,L,F,T][A-Z][0-9]{4}[A-Z])[0-9][Z][0-9]$/.test(
+          formData.gstin
+        )
+      ) {
+        errObj.gstin = "Enter Valid GSTIN Number";
+        //GSTIN NUMBER eg:(15CKTPB7841R5Z5)
+      }
     }
 
-    if (!formData.cin === "") {
-      errObj.cin = "This Field is Required";
-    } else if (!/^[a-zA-Z0-9]{1,21}$/.test(formData.cin)) {
-      errObj.cin = "Enter Valid CIN Number";
+    if (formData.cin) {
+      if (!/^[a-zA-Z0-9]{1,21}$/.test(formData.cin)) {
+        errObj.cin = "Enter Valid CIN Number";
+      }
     }
+
     setformDataErr((prev) => ({ ...prev, ...errObj }));
     return Object.values(errObj).every((x) => x === "");
   };
@@ -251,7 +252,6 @@ function BussinessRegisteration() {
                   <InputBoxComponent
                     placeholder="Enter GSTIN"
                     textLabel="GSTIN"
-                    required
                     name="gstin"
                     value={formData.gstin}
                     onChange={handleInputChange}
@@ -273,7 +273,6 @@ function BussinessRegisteration() {
                   <InputBoxComponent
                     placeholder="Enter CIN"
                     textLabel="CIN"
-                    required
                     name="cin"
                     value={formData.cin}
                     onChange={handleInputChange}
