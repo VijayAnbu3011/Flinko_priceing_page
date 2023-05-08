@@ -97,7 +97,6 @@ function BussinessRegisteration() {
         )
       ) {
         errObj.gstin = "Enter Valid GSTIN Number";
-        //GSTIN NUMBER eg:(15CKTPB7841R5Z5)
       }
     }
 
@@ -167,7 +166,7 @@ function BussinessRegisteration() {
       if (data) {
         getData(data.data);
         addToast(data.message, { appearance: "success" });
-        navigate("/companyregisteration");
+        navigate("/companyregisteration", { state: "0" });
       } else {
         addToast(errRes.message, { appearance: "error" });
       }

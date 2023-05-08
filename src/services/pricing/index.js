@@ -153,6 +153,15 @@ const paymentVerification = (payload) => {
     });
 };
 
+const getAllDesignation = async (companyId) => {
+  try {
+    const data = await serviceUtil.get(`designations/${companyId}`);
+    return data;
+  } catch (error) {
+    return { error };
+  }
+};
+
 export {
   getPlan,
   getAllCompanies,
@@ -166,4 +175,5 @@ export {
   postCheckout,
   createOrder,
   paymentVerification,
+  getAllDesignation,
 };

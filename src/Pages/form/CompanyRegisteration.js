@@ -6,14 +6,16 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ButtonComponent from "../../components/atoms/ButtonComponent";
 import InputBoxComponent from "../../components/atoms/InputBoxComponent";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import CheckBoxComponent from "../../components/atoms/CheckBoxComponent";
 import { useToasts } from "react-toast-notifications";
-import { postCompanyData } from "../../services/pricing";
-import { useNavigate } from "react-router-dom";
+import { getAllDesignation, postCompanyData } from "../../services/pricing";
+import { useLocation, useNavigate } from "react-router-dom";
+import SimpleDropdownComponent from "../../components/atoms/SimpleDropDownComponent";
+
 const initialState = {
   employeeId: "",
   firstName: "",
@@ -23,8 +25,11 @@ const initialState = {
   designation: "",
   agree: "",
 };
+
 function CompanyRegisteration() {
   const navigate = useNavigate();
+  const { state } = useLocation();
+
   const handleClick = () => {
     navigate("/bussinessregisteration");
   };
@@ -36,10 +41,34 @@ function CompanyRegisteration() {
     lastName: "",
     emailId: "",
     mobileNumber: "",
-    designation: "",
+    designation: null,
   });
 
   const [formDataErr, setformDataErr] = useState(initialState);
+  const [designation, setDesignation] = useState([]);
+
+  useEffect(() => {
+    if (state === "0") {
+      setFormData((prev) => ({
+        ...prev,
+        designation: { id: "Admin", label: "Admin" },
+      }));
+    } else {
+      getDesignationData(state);
+    }
+  }, [state]);
+
+  const getDesignationData = async (companyId) => {
+    const { data, error } = await getAllDesignation(companyId);
+    if (data) {
+      const tempAarray = data.data?.map((val) => {
+        return { id: val.designationId, label: val.designationName };
+      });
+      setDesignation([...tempAarray]);
+    } else {
+      setDesignation([]);
+    }
+  };
 
   const validateFields = () => {
     let errObj = { ...initialState };
@@ -71,15 +100,8 @@ function CompanyRegisteration() {
 
     if (!formData.designation) {
       errObj.designation = "This field is required";
-    } else if (
-      formData.designation.trim().length !== formData.designation.length
-    ) {
-      errObj.designation =
-        "Designation  field accepts only alphabet and space Max(30 characters)";
-    } else if (!/^[a-zA-Z ]{1,30}$/.test(formData.designation)) {
-      errObj.designation =
-        "Designation field accepts only alphabet and space Max(30 characters)";
     }
+
     if (!formData.emailId) {
       errObj.emailId = "This field is required";
     } else if (
@@ -102,7 +124,9 @@ function CompanyRegisteration() {
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
   const { addToast } = useToasts();
+
   const handleSubmit = async () => {
     let err = validateFields();
     if (err) {
@@ -112,7 +136,7 @@ function CompanyRegisteration() {
         lastName: formData.lastName,
         officialEmailId: formData.emailId,
         mobileNumber: formData.mobileNumber,
-        designationName: formData.designation,
+        designationName: formData.designation?.label,
       };
       let { data, errRes } = await postCompanyData(payload);
       if (data) {
@@ -202,15 +226,31 @@ function CompanyRegisteration() {
                   />
                 </Grid>
                 <Grid className="mt-2" item xs={12} sm={5.5} md={5.5}>
-                  <InputBoxComponent
-                    placeholder="Enter your designation"
-                    textLabel="Designation"
-                    required
-                    onChange={handleInputChange}
-                    name="designation"
-                    value={formData.designation}
-                    errorText={formDataErr.designation}
-                  />
+                  {state === "0" ? (
+                    <InputBoxComponent
+                      placeholder="Enter your designation"
+                      textLabel="Designation"
+                      required
+                      name="designation"
+                      value={formData.designation?.label}
+                      errorText={formDataErr.designation}
+                      readOnly
+                    />
+                  ) : (
+                    <SimpleDropdownComponent
+                      options={designation}
+                      value={formData.designation}
+                      onChange={(value) => {
+                        setFormData({
+                          ...formData,
+                          designation: value,
+                        });
+                      }}
+                      errorText={formDataErr.designation}
+                      textLabel="Designation"
+                      required
+                    />
+                  )}
                 </Grid>
                 <Box className="d-flex justify-content-start align-items-center">
                   <CheckBoxComponent
