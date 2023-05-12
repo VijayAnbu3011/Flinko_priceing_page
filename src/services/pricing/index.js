@@ -162,6 +162,19 @@ const getAllDesignation = async (companyId) => {
   }
 };
 
+const SubmitContactDetails = async (payload) => {
+  return serviceUtil
+    .post(`web-contact`, payload)
+    .then((res) => {
+      const data = res && res.data;
+      return { data };
+    })
+    .catch((err) => {
+      const errRes = err && err.response && err.response.data;
+      return { errRes };
+    });
+};
+
 export {
   getPlan,
   getAllCompanies,
@@ -176,4 +189,5 @@ export {
   createOrder,
   paymentVerification,
   getAllDesignation,
+  SubmitContactDetails,
 };

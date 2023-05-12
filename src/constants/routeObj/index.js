@@ -4,11 +4,16 @@ import CompanyRegisteration from "../../Pages/form/CompanyRegisteration";
 import OptPage from "../../Pages/form/OptPage";
 import SetPassword from "../../Pages/form/SetPassword";
 import Pricing from "../../Pages/pricing";
+import WeOffer from "../../Pages/weOffer";
 
 const websiteRouteObject = [
   {
     element: <Pricing />,
     path: "/pricing",
+  },
+  {
+    element: <WeOffer />,
+    path: "/weOffer",
   },
   {
     element: <BussinessRegisteration />,

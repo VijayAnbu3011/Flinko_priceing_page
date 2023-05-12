@@ -15,7 +15,7 @@ function Pricing() {
 
   useEffect(() => {
     getPlanDetail();
-    localStorage.clear()
+    localStorage.clear();
   }, []);
 
   const handlePlanChange = (plan) => {
@@ -57,8 +57,8 @@ function Pricing() {
   };
 
   return (
-    <>
-      <Box className="pricing-header  md-4 mx-auto text-center">
+    <Box className="my-3">
+      <Box className="pricing-header  md-4 mb-3 mx-auto text-center">
         <Typography variant="h3" className="display-4 fw-normal">
           Pricing
         </Typography>
@@ -158,7 +158,7 @@ function Pricing() {
           </Box>
         </Paper>
       </Box>
-    </>
+    </Box>
   );
 }
 
