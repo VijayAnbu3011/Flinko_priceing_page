@@ -70,7 +70,7 @@ function ContactUs() {
       result = true;
     } else {
       obj.message = "";
-      result = true;
+      result = false;
     }
     setContactStateErr(obj);
     obj = {};
