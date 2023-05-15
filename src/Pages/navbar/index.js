@@ -82,24 +82,34 @@ function Navbar(props) {
             alignItems="center"
           >
             <Grid>
-              <Typography
-                className="text-dark text-decoration-none cursor-pointer"
-                fontSize={18}
-                fontWeight={"500"}
+              <a
+                href="http://10.10.20.13:3300"
+                className="text-decoration-none"
               >
-                Login
-              </Typography>
+                <Typography
+                  className="text-dark text-decoration-none cursor-pointer"
+                  fontSize={18}
+                  fontWeight={"500"}
+                >
+                  Login
+                </Typography>
+              </a>
             </Grid>
             <Grid
               className="d-flex"
               justifyContent="center"
               alignItems="center"
             >
-              <ButtonComponent
-                label="Get Free Trail"
-                size="large"
-                borderRadius="4px"
-              />
+              <a
+                href="http://10.10.20.13:3300/auth/register"
+                className="text-decoration-none"
+              >
+                <ButtonComponent
+                  label="Get Free Trail"
+                  size="large"
+                  borderRadius="4px"
+                />
+              </a>
             </Grid>
           </Grid>
         </Box>
@@ -172,18 +182,25 @@ function Navbar(props) {
           width="30%"
           display={{ xs: "none", sm: "none", md: "flex" }}
         >
-          <Typography
-            className="d-flex flex-row me-3 py-2  text-dark text-decoration-none cursor-pointer"
-            fontSize={18}
-            fontWeight={"500"}
+          <a href="http://10.10.20.13:3300" className="text-decoration-none">
+            <Typography
+              className="d-flex flex-row me-3 py-2  text-dark text-decoration-none cursor-pointer"
+              fontSize={18}
+              fontWeight={"500"}
+            >
+              Login
+            </Typography>
+          </a>
+          <a
+            href="http://10.10.20.13:3300/auth/register"
+            className="text-decoration-none"
           >
-            Login
-          </Typography>
-          <ButtonComponent
-            label="Get Free Trail"
-            size="large"
-            borderRadius="4px"
-          />
+            <ButtonComponent
+              label="Get Free Trail"
+              size="large"
+              borderRadius="4px"
+            />
+          </a>
         </Box>
         <Box>
           <IconButton

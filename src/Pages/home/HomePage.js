@@ -55,11 +55,16 @@ function HomePage() {
                 className="d-flex justify-content-lg-start justify-content-cent er "
                 height="10%"
               >
-                <ButtonComponent
-                  label="Get Free Trail"
-                  size="large"
-                  borderRadius="8px"
-                />
+                <a
+                  href="http://10.10.20.13:3300/auth/register"
+                  className="text-decoration-none"
+                >
+                  <ButtonComponent
+                    label="Get Free Trail"
+                    size="large"
+                    borderRadius="8px"
+                  />
+                </a>
               </Grid>
               <Grid
                 item
