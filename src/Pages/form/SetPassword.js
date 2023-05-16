@@ -73,7 +73,7 @@ function SetPassword() {
         } else {
           localStorage.setItem("companyId", data?.data?.companyId);
           addToast(data.message, { appearance: "success" });
-          navigate("/checkout");
+          navigate("/pricing/checkout");
         }
       } else {
         addToast(errRes.message, { appearance: "error" });
@@ -91,14 +91,14 @@ function SetPassword() {
       sx={{
         display: "flex",
         justifyContent: "center",
-        position: "relative",
-        top: "180px",
       }}
+      className="my-5"
     >
       <Paper
         elevation={3}
         sx={{
           maxHeight: "content",
+          maxWidth: "30%",
           display: "flex",
           flexDirection: "column",
           padding: "15px",

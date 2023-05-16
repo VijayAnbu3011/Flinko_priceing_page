@@ -1,5 +1,5 @@
-import { Grid, Typography } from "@mui/material";
-import React from "react";
+import { Box, Grid, Typography } from "@mui/material";
+import React, { useEffect } from "react";
 import ButtonComponent from "../../components/atoms/ButtonComponent";
 import CalIcon from "../../assests/CalIcon.png";
 import analytics from "../../assests/analytics.png";
@@ -10,9 +10,12 @@ import team from "../../assests/team.png";
 import profits from "../../assests/profits.png";
 
 function HomePage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
-    <Grid className="d-md-flex m-5 p-1">
-      <Grid container lg={8} sm={12} xs={12}>
+    <Box className="d-md-flex m-5 p-1">
+      <Grid container item lg={8} sm={12} xs={12}>
         <Grid item lg={12} sm={12} xs={12}>
           <Typography className="d-flex fs-30 fw-700">
             You need this to build
@@ -46,13 +49,13 @@ function HomePage() {
             justifyContent="center"
             alignItems="flex-end"
           >
-            <Grid container lg={12} sm={12} xs={12}>
+            <Grid container item lg={12} sm={12} xs={12}>
               <Grid
                 item
                 lg={6}
                 sm={12}
                 xs={12}
-                className="d-flex justify-content-lg-start justify-content-cent er "
+                className="d-flex justify-content-lg-start justify-content-center "
                 height="10%"
               >
                 <a
@@ -83,7 +86,7 @@ function HomePage() {
               </Grid>
             </Grid>
           </Grid>
-          <Grid container lg={10} sm={12} xs={12}>
+          <Grid container item lg={10} sm={12} xs={12}>
             <Grid
               item
               lg={6}
@@ -107,13 +110,13 @@ function HomePage() {
           </Grid>
         </Grid>
       </Grid>
-      <Grid container lg={4} sm={12} xs={12}>
+      <Grid container item lg={4} sm={12} xs={12}>
         <Grid
           item
           lg={12}
           sm={12}
           xs={12}
-          className="d-flex justify-content-lg-end justify-content-center align-items-end pt-4"
+          className="d-flex  justify-content-center align-items-end pt-4"
           height={"30%"}
         >
           <img src={CalIcon} alt="Icon" width={"30%"} height={"70%"} />
@@ -123,7 +126,7 @@ function HomePage() {
           lg={12}
           sm={12}
           xs={12}
-          className="d-flex justify-content-lg-end justify-content-center "
+          className="d-flex justify-content-center justify-content-center "
         >
           <Typography className="pe-3 fs-24 fw-700">Accounts</Typography>
         </Grid>
@@ -144,7 +147,7 @@ function HomePage() {
           sm={12}
           xs={12}
           className="d-flex flex-column justify-content-lg-center pt-5 justify-content-center align-items-center"
-          height={"40%"}
+          height={"25%"}
         >
           <img src={analytics} alt="Icon" width={"50%"} height={"80%"} />
           <Typography className=" fs-24 fw-700">Analystic</Typography>
@@ -155,15 +158,15 @@ function HomePage() {
           sm={12}
           xs={12}
           className="d-flex flex-column justify-content-lg-start pt-5 justify-content-center align-items-center"
-          height={"30%"}
+          height={"25%"}
         >
-          <img src={coding} alt="Icon" width={"30%"} height={"70%"} />
+          <img src={coding} alt="Icon" width={"30%"} height={"90%"} />
           <Typography className="d-flex justify-content-start ps-1 fs-24 fw-700">
             IT
           </Typography>
         </Grid>
       </Grid>
-    </Grid>
+    </Box>
   );
 }
 

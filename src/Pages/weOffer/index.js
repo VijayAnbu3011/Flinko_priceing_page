@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import Talentacquisition from "../../assests/Talentacquisition.jpg";
 import Lifecycle from "../../assests/Lifecycle.png";
 import Attendance from "../../assests/Attendance.png";
@@ -7,6 +7,9 @@ import Performancemanagement from "../../assests/Performancemanagement.png";
 import PayrollandCompliance from "../../assests/PayrollandCompliance.webp";
 
 function WeOffer() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Box>
       <Grid
@@ -175,8 +178,8 @@ function WeOffer() {
       <Grid
         container
         className="d-flex flex-row py-5 justify-content-center align-items-center"
-        borderBottom={1}
-        borderColor="greenyellow"
+        // borderBottom={1}
+        // borderColor="greenyellow"
       >
         <Grid
           item

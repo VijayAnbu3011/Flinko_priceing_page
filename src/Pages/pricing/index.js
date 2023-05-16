@@ -7,6 +7,9 @@ import { useToasts } from "react-toast-notifications";
 import { useNavigate } from "react-router-dom";
 
 function Pricing() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [state, setState] = useState("Silver");
   const [plan, setPlan] = useState({});
   const [planDetails, setPlanDetails] = useState([]);
@@ -50,7 +53,7 @@ function Pricing() {
     if (data) {
       addToast(data.message, { appearance: "success" });
       localStorage.setItem("planName", state);
-      navigate("/bussinessregisteration");
+      navigate("/pricing/bussinessregisteration");
     } else {
       addToast(errRes.message, { appearance: "error" });
     }

@@ -1,11 +1,14 @@
 import { Box, Grid, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import contact from "../../assests/contact us.png";
 
 function AboutUs() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
-    <Box className="d-flex" height={"80%"}>
-      <Grid container>
+    <Box className="d-flex">
+      <Grid container item lg={12} sm={12} xs={12}>
         <Grid
           item
           lg={12}
@@ -14,7 +17,7 @@ function AboutUs() {
           className="d-flex mt-2"
           justifyContent="center"
           alignItems="center"
-          height={"10%"}
+          // height={"10%"}
         >
           <Typography className="d-flex fs-30 fw-700">Our Team</Typography>
         </Grid>
@@ -28,7 +31,7 @@ function AboutUs() {
           alignItems="center"
         >
           <Typography className="d-flex fs-30 fw-400 px-3">
-            The strength of the team is each individual member
+            The strength of the team is each individual member.
           </Typography>
         </Grid>
         <Grid
@@ -41,7 +44,7 @@ function AboutUs() {
           alignItems="center"
         >
           <Typography className="d-flex fs-30 fw-400 px-3">
-            The strength of each member is the team
+            The strength of each member is the team.
           </Typography>
         </Grid>
         <Grid
@@ -52,7 +55,7 @@ function AboutUs() {
           className="d-flex flex-row "
           justifyContent="center"
           alignItems="center"
-          height={"70%"}
+          // height={"70%"}
         >
           <img src={contact} width={"30%"} height={"80%"} />
         </Grid>
