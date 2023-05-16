@@ -33,7 +33,6 @@ function ContactUs() {
       result = true;
     } else {
       obj.employeeName = "";
-      result = false;
     }
     if (contactState.mobileNo === "") {
       obj.mobileNo = "This Fiels is Required";
@@ -41,7 +40,6 @@ function ContactUs() {
     } else {
       if (/^\d{10}$/.test(contactState.mobileNo)) {
         obj.mobileNo = "";
-        result = false;
       } else {
         obj.mobileNo = "Enter Valid Mobile Number";
         result = true;
@@ -52,7 +50,6 @@ function ContactUs() {
       result = true;
     } else {
       obj.companyName = "";
-      result = false;
     }
     if (contactState.email === "") {
       obj.email = "This Fiels is Required";
@@ -62,7 +59,6 @@ function ContactUs() {
         /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(contactState.email)
       ) {
         obj.email = "";
-        result = false;
       } else {
         obj.email = "Enter Valid Email Id";
         result = true;
@@ -73,7 +69,6 @@ function ContactUs() {
       result = true;
     } else {
       obj.message = "";
-      result = false;
     }
     setContactStateErr(obj);
     obj = {};
@@ -90,7 +85,6 @@ function ContactUs() {
   const handleSubmit = async () => {
     let payload = contactState;
     let valid = validate();
-    console.log(valid, "valid");
     if (!valid) {
       let { data, errRes } = await SubmitContactDetails(payload);
       if (data) {
