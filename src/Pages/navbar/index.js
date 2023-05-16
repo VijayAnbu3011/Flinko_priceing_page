@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Divider,
@@ -13,7 +13,7 @@ import {
   Typography,
 } from "@mui/material";
 import Logo from "../../assests/logo.svg";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import ButtonComponent from "../../components/atoms/ButtonComponent";
@@ -23,9 +23,18 @@ function Navbar(props) {
   const drawerWidth = 240;
   const navigate = useNavigate();
   const [drawer, setDrawer] = useState(false);
+  const [activeTitle, setactiveTitle] = useState("");
+
   const handleDrawerToggle = () => {
     setDrawer((prestate) => !prestate);
   };
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    setactiveTitle(pathname.split("/")[1]);
+  }, [pathname]);
+
   const drawerData = (
     <Box onClick={handleDrawerToggle} className="h-100">
       <Box className="d-flex flex-column justify-content-between h-100">
@@ -42,9 +51,16 @@ function Navbar(props) {
             <ListItem key={1} disablePadding>
               <ListItemButton
                 sx={{ textAlign: "center" }}
-                onClick={() => navigate("/weOffer")}
+                onClick={() => {
+                  navigate("/weOffer");
+                }}
               >
-                <ListItemText primary={"We Offer"} />
+                <ListItemText
+                  primary={"We Offer"}
+                  primaryTypographyProps={{
+                    fontWeight: activeTitle == "weOffer" ? "bold" : "400",
+                  }}
+                />
               </ListItemButton>
             </ListItem>
             <ListItem key={2} disablePadding>
@@ -52,7 +68,12 @@ function Navbar(props) {
                 sx={{ textAlign: "center" }}
                 onClick={() => navigate("/pricing")}
               >
-                <ListItemText primary={"Pricing"} />
+                <ListItemText
+                  primary={"Pricing"}
+                  primaryTypographyProps={{
+                    fontWeight: activeTitle == "pricing" ? "bold" : "400",
+                  }}
+                />
               </ListItemButton>
             </ListItem>
             <ListItem key={3} disablePadding>
@@ -60,7 +81,12 @@ function Navbar(props) {
                 sx={{ textAlign: "center" }}
                 onClick={() => navigate("/aboutUs")}
               >
-                <ListItemText primary={"About Us"} />
+                <ListItemText
+                  primary={"About Us"}
+                  primaryTypographyProps={{
+                    fontWeight: activeTitle == "aboutUs" ? "bold" : "400",
+                  }}
+                />
               </ListItemButton>
             </ListItem>
             <ListItem key={4} disablePadding>
@@ -68,7 +94,12 @@ function Navbar(props) {
                 sx={{ textAlign: "center" }}
                 onClick={() => navigate("/contactUs")}
               >
-                <ListItemText primary={"Contact Us"} />
+                <ListItemText
+                  primary={"Contact Us"}
+                  primaryTypographyProps={{
+                    fontWeight: activeTitle == "contactUs" ? "bold" : "400",
+                  }}
+                />
               </ListItemButton>
             </ListItem>
           </List>
@@ -152,26 +183,50 @@ function Navbar(props) {
           display={{ xs: "none", sm: "none", md: "flex" }}
         >
           <Typography
-            className="d-flex flex-row me-3 py-2  text-dark text-decoration-none cursor-pointer"
-            onClick={() => navigate("/weOffer")}
+            className={
+              activeTitle == "weOffer"
+                ? "d-flex flex-row me-3 py-2 text-dark fw-bold text-decoration-none cursor-pointer"
+                : "d-flex flex-row me-3 py-2 text-dark text-decoration-none cursor-pointer"
+            }
+            onClick={() => {
+              navigate("/weOffer");
+            }}
           >
             We Offer{" "}
           </Typography>
           <Typography
-            className="me-3 py-2 text-dark ps-3 text-decoration-none cursor-pointer"
-            onClick={() => navigate("/pricing")}
+            className={
+              activeTitle == "pricing"
+                ? "d-flex flex-row me-3 py-2 text-dark fw-bold text-decoration-none cursor-pointer"
+                : "d-flex flex-row me-3 py-2 text-dark text-decoration-none cursor-pointer"
+            }
+            onClick={() => {
+              navigate("/pricing");
+            }}
           >
             Pricing
           </Typography>
           <Typography
-            className="me-3 py-2 ps-3 text-dark text-decoration-none cursor-pointer"
-            onClick={() => navigate("/aboutUs")}
+            className={
+              activeTitle == "aboutUs"
+                ? "d-flex flex-row me-3 py-2 text-dark fw-bold text-decoration-none cursor-pointer"
+                : "d-flex flex-row me-3 py-2 text-dark text-decoration-none cursor-pointer"
+            }
+            onClick={() => {
+              navigate("/aboutUs");
+            }}
           >
             About Us
           </Typography>
           <Typography
-            className="me-3 py-2 ps-3 text-dark text-decoration-none cursor-pointer"
-            onClick={() => navigate("/contactUs")}
+            className={
+              activeTitle == "contactUs"
+                ? "d-flex flex-row me-3 py-2 text-dark fw-bold text-decoration-none cursor-pointer"
+                : "d-flex flex-row me-3 py-2 text-dark text-decoration-none cursor-pointer"
+            }
+            onClick={() => {
+              navigate("/contactUs");
+            }}
           >
             Contact Us
           </Typography>

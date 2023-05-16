@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import InputBoxComponent from "../../components/atoms/InputBoxComponent";
 import ButtonComponent from "../../components/atoms/ButtonComponent";
 import EmailIcon from "@mui/icons-material/Email";
@@ -8,6 +8,9 @@ import { SubmitContactDetails } from "../../services/pricing";
 import { useToasts } from "react-toast-notifications";
 
 function ContactUs() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [contactState, setContactState] = useState({
     employeeName: "",
     mobileNo: "",
@@ -30,7 +33,6 @@ function ContactUs() {
       result = true;
     } else {
       obj.employeeName = "";
-      result = false;
     }
     if (contactState.mobileNo === "") {
       obj.mobileNo = "This Fiels is Required";
@@ -38,7 +40,6 @@ function ContactUs() {
     } else {
       if (/^\d{10}$/.test(contactState.mobileNo)) {
         obj.mobileNo = "";
-        result = false;
       } else {
         obj.mobileNo = "Enter Valid Mobile Number";
         result = true;
@@ -49,7 +50,6 @@ function ContactUs() {
       result = true;
     } else {
       obj.companyName = "";
-      result = false;
     }
     if (contactState.email === "") {
       obj.email = "This Fiels is Required";
@@ -59,7 +59,6 @@ function ContactUs() {
         /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(contactState.email)
       ) {
         obj.email = "";
-        result = false;
       } else {
         obj.email = "Enter Valid Email Id";
         result = true;
@@ -70,7 +69,6 @@ function ContactUs() {
       result = true;
     } else {
       obj.message = "";
-      result = true;
     }
     setContactStateErr(obj);
     obj = {};
@@ -87,7 +85,6 @@ function ContactUs() {
   const handleSubmit = async () => {
     let payload = contactState;
     let valid = validate();
-    console.log(valid, "valid");
     if (!valid) {
       let { data, errRes } = await SubmitContactDetails(payload);
       if (data) {
@@ -106,7 +103,7 @@ function ContactUs() {
   };
   return (
     <Box width="100%" className="d-flex">
-      <Grid container lg={12} className="d-flex m-1 p-3">
+      <Grid container item lg={12} className="d-flex m-1 p-3">
         <Grid item lg={12}>
           <Typography fontSize={30} fontWeight="bold" className="ps-3">
             Contact
@@ -115,6 +112,7 @@ function ContactUs() {
         <Grid item lg={6} sm={12} className="d-flex flex-column p-3">
           <Grid
             container
+            item
             lg={12}
             sm={12}
             className="d-flex my-2 p-3"
@@ -203,7 +201,13 @@ function ContactUs() {
           </Grid>
         </Grid>
         <Grid item lg={6} sm={12}>
-          <Grid container lg={12} sm={12} className="d-flex flex-column p-3">
+          <Grid
+            container
+            item
+            lg={12}
+            sm={12}
+            className="d-flex flex-column p-3"
+          >
             <Grid item lg={12} sm={12}>
               <Grid container className="d-flex my-2 p-3" border={1}>
                 <Grid item lg={12} sm={12} className="d-flex p-2">

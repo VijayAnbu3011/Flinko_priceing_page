@@ -31,7 +31,7 @@ function CompanyRegisteration() {
   const { state } = useLocation();
 
   const handleClick = () => {
-    navigate("/bussinessregisteration");
+    navigate("/pricing/bussinessregisteration");
   };
 
   const [agree, setAgree] = useState(true);
@@ -143,7 +143,7 @@ function CompanyRegisteration() {
         const currentTime = new Date();
         localStorage.setItem("otpSentTime", currentTime.getTime());
         addToast(data.message, { appearance: "success" });
-        navigate("/otppage", {
+        navigate("/pricing/otppage", {
           state: {
             employeeId: formData.employeeId,
           },

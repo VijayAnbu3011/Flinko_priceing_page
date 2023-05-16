@@ -17,23 +17,23 @@ const websiteRouteObject = [
   },
   {
     element: <BussinessRegisteration />,
-    path: "/bussinessregisteration",
+    path: "/pricing/bussinessregisteration",
   },
   {
     element: <CompanyRegisteration />,
-    path: "/companyregisteration",
+    path: "/pricing/companyregisteration",
   },
   {
     element: <OptPage />,
-    path: "/otppage",
+    path: "/pricing/otppage",
   },
   {
     element: <SetPassword />,
-    path: "/setpassword",
+    path: "/pricing/setpassword",
   },
   {
     element: <CheckoutPage />,
-    path: "/checkout",
+    path: "/pricing/checkout",
   },
 ];
 

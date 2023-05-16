@@ -44,7 +44,7 @@ function OptPage() {
           addToast(data.message, { appearance: "error" });
         } else {
           addToast(data.message, { appearance: "success" });
-          navigate("/setpassword", {
+          navigate("/pricing/setpassword", {
             state: {
               employeeId: state?.employeeId,
             },
@@ -149,9 +149,8 @@ function OptPage() {
       sx={{
         display: "flex",
         justifyContent: "center",
-        position: "relative",
-        top: "180px",
       }}
+      className="my-5"
     >
       <Paper
         elevation={3}

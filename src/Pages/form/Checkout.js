@@ -122,7 +122,7 @@ function CheckoutPage() {
 
   return (
     <>
-      <Box className="px-1 px-sm-2 px-md-5">
+      <Box className="px-1 px-sm-2 px-md-5 m-3">
         <Paper>
           <Box className="mx-1 mx-sm-2 mx-md-5">
             <CardContent>

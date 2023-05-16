@@ -166,7 +166,7 @@ function BussinessRegisteration() {
       if (data) {
         getData(data.data);
         addToast(data.message, { appearance: "success" });
-        navigate("/companyregisteration", { state: "0" });
+        navigate("/pricing/companyregisteration", { state: "0" });
       } else {
         addToast(errRes.message, { appearance: "error" });
       }
