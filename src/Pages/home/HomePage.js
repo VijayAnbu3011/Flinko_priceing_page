@@ -23,7 +23,7 @@ function HomePage() {
 
           <Grid item lg={8} sm={12} xs={12}>
             <Typography className="d-flex fs-30 fw-700">
-              a dream company
+              your dream company
             </Typography>
           </Grid>
           <Grid
@@ -36,7 +36,7 @@ function HomePage() {
             alignItems="flex-end"
           >
             <Typography className="d-flex fs-20 fw-500">
-              Flinko is your own plateform to minimize your effort and get their
+              Flinko is your own platform to minimize your effort and get their
               desire result with accuracy
             </Typography>
           </Grid>
