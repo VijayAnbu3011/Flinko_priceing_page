@@ -117,6 +117,7 @@ function ContactUs() {
             sm={12}
             className="d-flex my-2 p-3"
             border={1}
+            borderColor="#D3D3D3"
           >
             <Grid item lg={12} sm={12}>
               <Typography className="d-flex py-1  fs-24 fw-400">
@@ -209,7 +210,12 @@ function ContactUs() {
             className="d-flex flex-column p-3"
           >
             <Grid item lg={12} sm={12}>
-              <Grid container className="d-flex my-2 p-3" border={1}>
+              <Grid
+                container
+                className="d-flex my-2 p-3"
+                border={1}
+                borderColor="#D3D3D3"
+              >
                 <Grid item lg={12} sm={12} className="d-flex p-2">
                   <Typography>
                     <EmailIcon />
@@ -229,7 +235,12 @@ function ContactUs() {
               </Grid>
             </Grid>
             <Grid item lg={12}>
-              <Grid container className="d-flex my-2 p-3" border={1}>
+              <Grid
+                container
+                className="d-flex my-2 p-3"
+                border={1}
+                borderColor="#D3D3D3"
+              >
                 <Grid item lg={12} sm={12} className="d-flex p-2">
                   <Typography>
                     <LocationOnIcon />

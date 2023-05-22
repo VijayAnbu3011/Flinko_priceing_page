@@ -177,15 +177,15 @@ function Navbar(props) {
           style={{ cursor: "pointer" }}
         />
         <Box
-          className="mt-2 mt-md-0 ms-md-auto"
-          justifyContent="center"
+          className="mt-2 mt-md-0 ps-5 pt-2"
+          justifyContent="start"
           width="100%"
           display={{ xs: "none", sm: "none", md: "flex" }}
         >
           <Typography
             className={
               activeTitle == "weOffer"
-                ? "d-flex flex-row me-3 py-2 text-dark fw-bold text-decoration-none cursor-pointer"
+                ? "d-flex flex-row me-3 py-2  text-dark fw-bold text-decoration-none cursor-pointer"
                 : "d-flex flex-row me-3 py-2 text-dark text-decoration-none cursor-pointer"
             }
             onClick={() => {
@@ -239,7 +239,7 @@ function Navbar(props) {
         >
           <a href="http://10.10.20.13:3300" className="text-decoration-none">
             <Typography
-              className="d-flex flex-row me-3 py-2  text-dark text-decoration-none cursor-pointer"
+              className="d-flex flex-row  py-2  text-dark text-decoration-none cursor-pointer"
               fontSize={18}
               fontWeight={"500"}
             >
