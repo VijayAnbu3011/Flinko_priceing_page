@@ -38,7 +38,7 @@ function OptPage() {
         otp: `${firstNumber}${secondNumber}${thirdNumber}${fourthNumber}`,
       };
 
-      const { data, error } = await verifyOtp(paylaod);
+      const { data, errRes } = await verifyOtp(paylaod);
       if (data) {
         if (data.error) {
           addToast(data.message, { appearance: "error" });
@@ -51,7 +51,7 @@ function OptPage() {
           });
         }
       } else {
-        addToast(error?.response?.data?.message, { appearance: "error" });
+        addToast(errRes?.message, { appearance: "error" });
       }
     }
   };
@@ -93,7 +93,7 @@ function OptPage() {
     const payload = {
       employeeId: state?.employeeId,
     };
-    const { data, error } = await resendOtpForRegister(payload);
+    const { data, errRes } = await resendOtpForRegister(payload);
     if (data) {
       if (data.error) {
         addToast(data.message, { appearance: "error" });
@@ -109,7 +109,7 @@ function OptPage() {
         setFourthNumber("");
       }
     } else {
-      addToast(error?.response?.data?.message, { appearance: "error" });
+      addToast(errRes?.message, { appearance: "error" });
     }
   };
   const handleExpiryTime = () => {
