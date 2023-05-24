@@ -77,7 +77,7 @@ function ContactUs() {
   };
   const { addToast } = useToasts();
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setContactState({
       ...contactState,
       [e.target.name]: e.target.value,
@@ -136,92 +136,14 @@ function ContactUs() {
           boxShadow="rgb(204, 204, 204) 0px 1px 5px"
           boxSizing="border-box"
         >
-          <Grid container lg={5} md={5} sm={12} className="d-flex p-1">
-            {/* <Grid
-              container
-              item
-              lg={12}
-              sm={12}
-              className="d-flex flex-column p-3"
-            >
-              <Grid item lg={12} sm={12}>
-                <Grid
-                  container
-                  className="d-flex my-2 p-3"
-                  border={1}
-                  borderColor="#D3D3D3"
-                >
-                  <Grid item lg={12} sm={12} className="d-flex p-2">
-                    <Typography>
-                      <EmailIcon />
-                    </Typography>
-                    <Typography className="d-flex ps-1">
-                      flinko.app@gmail.com
-                    </Typography>
-                  </Grid>
-                  <Grid item lg={12} sm={12} className="d-flex p-2">
-                    <Typography>
-                      <EmailIcon />
-                    </Typography>
-                    <Typography className="d-flex ps-1">
-                      flinko.app@gmail.com
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item lg={12}>
-                <Grid
-                  container
-                  className="d-flex my-2 p-3"
-                  border={1}
-                  borderColor="#D3D3D3"
-                >
-                  <Grid item lg={12} sm={12} className="d-flex p-2">
-                    <Typography>
-                      <LocationOnIcon />
-                    </Typography>
-                    <Typography className="d-flex ps-1">
-                      c29,Sector 6,Noida 203101,India
-                    </Typography>
-                  </Grid>
-                  <Grid item lg={12} sm={12} className="d-flex px-3">
-                    <Typography className="ps-4">
-                      +91 120-4546011 | +91 120-4107048
-                    </Typography>
-                  </Grid>
-                  <Grid item lg={12} sm={12} className="d-flex p-2">
-                    <Typography>
-                      <LocationOnIcon />
-                    </Typography>
-                    <Typography className="d-flex ps-1">
-                      3422 Old Capitol Trail #136, Wilmington, DE 19808, USA
-                    </Typography>
-                  </Grid>
-                  <Grid item lg={12} sm={12} className="d-flex px-3">
-                    <Typography className="ps-4">+1 323 540 3045</Typography>
-                  </Grid>
-                  <Grid item lg={12} sm={12} className="d-flex p-2">
-                    <Typography>
-                      <LocationOnIcon />
-                    </Typography>
-                    <Typography className="d-flex ps-1">
-                      Block EP, Y23, Sec-5, Salt Lake City, Kolkata-700091,
-                      India.
-                    </Typography>
-                  </Grid>
-                  <Grid item lg={12} sm={12} className="d-flex px-3">
-                    <Typography className="ps-4">+91 33 46035883</Typography>
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Grid> */}
+          <Grid container lg={5} md={5} sm={12} className="p-1">
             <Grid container bgcolor={"#1181b2"} borderRadius={"5px"}>
               <Grid
                 item
                 lg={12}
                 md={12}
                 sm={12}
-                className="d-flex flex-column p-2 ps-5 pt-5 justify-content-start align-items-start"
+                className="d-flex flex-column ps-5 pt-5 justify-content-start align-items-start"
               >
                 <Typography fontSize={22} fontWeight={"bold"} color={"white"}>
                   Contact Information
@@ -232,7 +154,7 @@ function ContactUs() {
                   color={"white"}
                   className="my-3"
                 >
-                  Fill up the form and our team will get back <br /> to you.
+                  Fill up the form and our team will get back to you.
                 </Typography>
                 <Typography className="d-flex ps-1 pt-5" color="white">
                   <LocalPhoneIcon sx={{ color: "white" }} />{" "}
@@ -260,12 +182,6 @@ function ContactUs() {
               boxSizing="border-box"
               className="d-flex my-2 p-3 "
             >
-              {/* <Grid item lg={12} sm={12}>
-                <Typography className="d-flex py-1  fs-24 fw-400">
-                  Reach out to us with your details and we will connect with
-                  you!
-                </Typography>
-              </Grid> */}
               <Grid
                 item
                 lg={12}
@@ -278,7 +194,7 @@ function ContactUs() {
                   textLabel="Name"
                   name="employeeName"
                   value={contactState.employeeName}
-                  onChange={(e) => {
+                  onChange={e => {
                     handleChange(e);
                   }}
                   placeholder="Name"
@@ -290,7 +206,7 @@ function ContactUs() {
                   textLabel="E-mail"
                   name="email"
                   value={contactState.email}
-                  onChange={(e) => {
+                  onChange={e => {
                     handleChange(e);
                   }}
                   placeholder="E-mail"
@@ -303,7 +219,7 @@ function ContactUs() {
                     textLabel="Mobile No"
                     name="mobileNo"
                     value={contactState.mobileNo}
-                    onChange={(e) => {
+                    onChange={e => {
                       handleChange(e);
                     }}
                     placeholder="Phone"
@@ -315,7 +231,7 @@ function ContactUs() {
                     textLabel="Company Name"
                     name="companyName"
                     value={contactState.companyName}
-                    onChange={(e) => {
+                    onChange={e => {
                       handleChange(e);
                     }}
                     placeholder="Company Name"
@@ -327,7 +243,7 @@ function ContactUs() {
                 <InputBoxComponent
                   textLabel="Comment"
                   name="message"
-                  onChange={(e) => {
+                  onChange={e => {
                     handleChange(e);
                   }}
                   value={contactState.message}
