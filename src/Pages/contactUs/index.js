@@ -236,9 +236,7 @@ function ContactUs() {
                 </Typography>
                 <Typography className="d-flex ps-1 pt-5" color="white">
                   <LocalPhoneIcon sx={{ color: "white" }} />{" "}
-                  <Typography className="ps-1">
-                    c29,Sector 6,Noida 203101,India
-                  </Typography>
+                  <Typography className="ps-1">+91 0000000000</Typography>
                 </Typography>
                 <Typography className="d-flex ps-1 pt-4" color="white">
                   <EmailIcon sx={{ color: "white" }} />
