@@ -199,6 +199,7 @@ function ContactUs() {
                   }}
                   placeholder="Name"
                   errorText={contactStateErr.employeeName}
+                  required
                 />
               </Grid>
               <Grid item lg={12} sm={12} xs={12} className="my-2">
@@ -211,6 +212,7 @@ function ContactUs() {
                   }}
                   placeholder="E-mail"
                   errorText={contactStateErr.email}
+                  required
                 />
               </Grid>
               <Grid container justifyContent="space-between">
@@ -224,6 +226,7 @@ function ContactUs() {
                     }}
                     placeholder="Phone"
                     errorText={contactStateErr.mobileNo}
+                    required
                   />
                 </Grid>
                 <Grid item lg={5.8} sm={12} xs={12} className="my-2">
@@ -236,6 +239,7 @@ function ContactUs() {
                     }}
                     placeholder="Company Name"
                     errorText={contactStateErr?.companyName ?? ""}
+                    required
                   />
                 </Grid>
               </Grid>
@@ -252,6 +256,7 @@ function ContactUs() {
                   size="large"
                   placeholder="Comments"
                   rows={5}
+                  required
                 />
               </Grid>
               <Grid
