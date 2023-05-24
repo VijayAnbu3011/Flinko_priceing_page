@@ -1,22 +1,30 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import ButtonComponent from "../../components/atoms/ButtonComponent";
-import CalIcon from "../../assests/CalIcon.png";
-import analytics from "../../assests/analytics.png";
-import coding from "../../assests/coding.png";
-import businessman from "../../assests/businessman.png";
-import hand from "../../assests/hand.png";
-import team from "../../assests/team.png";
-import profits from "../../assests/profits.png";
+import RecuritAgent from "../../assests/RecuritAgent.jpg";
+import HumanResourse from "../../assests/hr.jpg";
+import TeamWork from "../../assests/Team Work.jpg";
+import sales from "../../assests/Business.jpg";
+import Analytic from "../../assests/analystic.jpg";
+import WorkPlace from "../../assests/WorkPlace.jpg";
+import Hiring from "../../assests/Hiring.jpg";
+import Interview from "../../assests/Interview.jpg";
+import Profile from "../../assests/Profile.jpg";
+import IT from "../../assests/IT.jpg";
+import Account from "../../assests/Account.jpg";
+import ProjectManagement from "../../assests/Project Management.jpg";
+import EmployeeManagement from "../../assests/EmployeeManagement.jpg";
+import ReportingManager from "../../assests/Reporting Manager.jpg";
+import Admin from "../../assests/Admin.jpg";
 
 function HomePage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <Box className="d-md-flex m-5 p-1">
-      <Grid container item lg={8} sm={12} xs={12}>
-        <Grid item lg={12} sm={12} xs={12}>
+    <Box className="d-md-flex flex-column m-5 p-1">
+      <Grid container item lg={12} sm={12} xs={12}>
+        <Grid item lg={7} sm={12} xs={12}>
           <Typography className="d-flex fs-30 fw-700">
             You need this to build
           </Typography>
@@ -69,100 +77,197 @@ function HomePage() {
                   />
                 </a>
               </Grid>
-              <Grid
-                item
-                lg={6}
-                sm={12}
-                xs={12}
-                className="d-flex flex-column pt-3  justify-content-center align-items-center"
-              >
-                <img
-                  src={businessman}
-                  alt="Icon"
-                  width={"30%"}
-                  height={"90%"}
-                />
-                <Typography className="ps-4 fs-24 fw-700">Admin</Typography>
-              </Grid>
             </Grid>
           </Grid>
-          <Grid container item lg={10} sm={12} xs={12}>
-            <Grid
-              item
-              lg={6}
-              sm={12}
-              xs={12}
-              className="pt-5 d-flex flex-column justify-content-lg-start justify-content-center align-items-center"
-            >
-              <img src={profits} alt="Icon" width={"30%"} height={"70%"} />
-              <Typography className="ps-4 fs-24 fw-700">Sales</Typography>
-            </Grid>
-            <Grid
-              item
-              lg={6}
-              sm={12}
-              xs={12}
-              className="d-flex flex-column pt-5 justify-content-lg-start justify-content-center align-items-center"
-            >
-              <img src={team} alt="Icon" width={"30%"} height={"70%"} />
-              <Typography className="ps-4 fs-24 fw-700">HR</Typography>
-            </Grid>
-          </Grid>
+        </Grid>
+        <Grid item lg={4} sm={12} xs={12} className="d-flex ">
+          <img src={Profile} alt="" width={"100%"} height={"350px"} />
         </Grid>
       </Grid>
-      <Grid container item lg={4} sm={12} xs={12}>
+      <Grid
+        container
+        item
+        lg={12}
+        className="d-flex my-4"
+        justifyContent="space-around"
+        alignItems="center"
+      >
         <Grid
           item
-          lg={12}
+          lg={3}
+          md={5}
           sm={12}
           xs={12}
-          className="d-flex  justify-content-center align-items-end pt-4"
-          height={"30%"}
+          border={1}
+          borderColor={"#D3D3D3"}
+          className="d-flex flex-column m-3 p-3 justify-content-center align-items-center"
+          borderRadius={"5px"}
+          boxShadow="rgb(204, 204, 204) 0px 1px 5px"
         >
-          <img src={CalIcon} alt="Icon" width={"30%"} height={"70%"} />
+          <img src={Admin} width="100%" height="300px" alt="Admin" />
+          <Typography className="d-flex fs-26 fw-500 justify-content-center">
+            Admin{" "}
+          </Typography>
         </Grid>
         <Grid
           item
-          lg={12}
+          lg={3}
+          md={5}
           sm={12}
           xs={12}
-          className="d-flex justify-content-center justify-content-center "
+          border={1}
+          borderColor={"#D3D3D3"}
+          className="d-flex flex-column m-3 p-3 justify-content-center align-items-center"
+          borderRadius={"5px"}
+          boxShadow="rgb(204, 204, 204) 0px 1px 5px"
         >
-          <Typography className="pe-3 fs-24 fw-700">Accounts</Typography>
+          <img
+            src={HumanResourse}
+            width="100%"
+            height="300px"
+            alt=" Human Resourse"
+          />
+          <Typography className="d-flex fs-26 fw-500 justify-content-center">
+            Human Resourse{" "}
+          </Typography>
         </Grid>
         <Grid
           item
-          lg={6}
+          lg={3}
+          md={5}
           sm={12}
           xs={12}
-          className="d-flex flex-column justify-content-lg-start justify-content-center align-items-center"
-          height={"20%"}
+          border={1}
+          borderColor={"#D3D3D3"}
+          className="d-flex flex-column m-3 p-3 justify-content-center align-items-center"
+          borderRadius={"5px"}
+          boxShadow="rgb(204, 204, 204) 0px 1px 5px"
         >
-          <img src={hand} alt="Icon" width={"50%"} height={"80%"} />
-          <Typography className=" fs-24 fw-700">Payroll</Typography>
+          <img
+            src={Hiring}
+            width="100%"
+            height="300px"
+            alt="Admin Department"
+          />
+          <Typography className="d-flex fs-26 fw-500 justify-content-center">
+            Admin Department{" "}
+          </Typography>
         </Grid>
         <Grid
           item
-          lg={6}
+          lg={3}
+          md={5}
           sm={12}
           xs={12}
-          className="d-flex flex-column justify-content-lg-center pt-5 justify-content-center align-items-center"
-          height={"25%"}
+          border={1}
+          borderColor={"#D3D3D3"}
+          className="d-flex flex-column m-3 p-3 justify-content-center align-items-center"
+          borderRadius={"5px"}
+          boxShadow="rgb(204, 204, 204) 0px 1px 5px"
         >
-          <img src={analytics} alt="Icon" width={"50%"} height={"80%"} />
-          <Typography className=" fs-24 fw-700">Analystic</Typography>
+          <img src={IT} width="100%" height="300px" alt="IT Department" />
+          <Typography className="d-flex fs-26 fw-500 justify-content-center">
+            IT Department{" "}
+          </Typography>
         </Grid>
         <Grid
           item
-          lg={12}
+          lg={3}
+          md={5}
           sm={12}
           xs={12}
-          className="d-flex flex-column justify-content-lg-start pt-5 justify-content-center align-items-center"
-          height={"25%"}
+          border={1}
+          borderColor={"#D3D3D3"}
+          className="d-flex flex-column m-3 p-3 justify-content-center align-items-center"
+          borderRadius={"5px"}
+          boxShadow="rgb(204, 204, 204) 0px 1px 5px"
         >
-          <img src={coding} alt="Icon" width={"30%"} height={"90%"} />
-          <Typography className="d-flex justify-content-start ps-1 fs-24 fw-700">
-            IT
+          <img src={Account} width="100%" height="300px" alt="Account" />
+          <Typography className="d-flex fs-26 fw-500 justify-content-center">
+            Account{" "}
+          </Typography>
+        </Grid>
+        <Grid
+          item
+          lg={3}
+          md={5}
+          sm={12}
+          xs={12}
+          border={1}
+          borderColor={"#D3D3D3"}
+          className="d-flex flex-column m-3 p-3 justify-content-center align-items-center"
+          borderRadius={"5px"}
+          boxShadow="rgb(204, 204, 204) 0px 1px 5px"
+        >
+          <img
+            src={ProjectManagement}
+            width="100%"
+            height="300px"
+            alt="Project Management"
+          />
+          <Typography className="d-flex fs-26 fw-500 justify-content-center">
+            Project Management{" "}
+          </Typography>
+        </Grid>
+        <Grid
+          item
+          lg={3}
+          md={5}
+          sm={12}
+          xs={12}
+          border={1}
+          borderColor={"#D3D3D3"}
+          className="d-flex flex-column m-3 p-3 justify-content-center align-items-center"
+          borderRadius={"5px"}
+          boxShadow="rgb(204, 204, 204) 0px 1px 5px"
+        >
+          <img
+            src={EmployeeManagement}
+            width="100%"
+            height="300px"
+            alt="Employee Management"
+          />
+          <Typography className="d-flex fs-26 fw-500 justify-content-center">
+            Employee Management{" "}
+          </Typography>
+        </Grid>
+        <Grid
+          item
+          lg={3}
+          md={5}
+          sm={12}
+          xs={12}
+          border={1}
+          borderColor={"#D3D3D3"}
+          className="d-flex flex-column m-3 p-3 justify-content-center align-items-center"
+          borderRadius={"5px"}
+          boxShadow="rgb(204, 204, 204) 0px 1px 5px"
+        >
+          <img
+            src={ReportingManager}
+            width="100%"
+            height="300px"
+            alt="Reporting Manager"
+          />
+          <Typography className="d-flex fs-26 fw-500 justify-content-center">
+            Reporting Manager{" "}
+          </Typography>
+        </Grid>
+        <Grid
+          item
+          lg={3}
+          md={5}
+          sm={12}
+          xs={12}
+          border={1}
+          borderColor={"#D3D3D3"}
+          className="d-flex flex-column m-3 p-3 justify-content-center align-items-center"
+          borderRadius={"5px"}
+          boxShadow="rgb(204, 204, 204) 0px 1px 5px"
+        >
+          <img src={sales} width="100%" height="300px" alt="Admin" />
+          <Typography className="d-flex fs-26 fw-500 justify-content-center">
+            Sales{" "}
           </Typography>
         </Grid>
       </Grid>
