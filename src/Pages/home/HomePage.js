@@ -83,6 +83,18 @@ function HomePage() {
         container
         item
         lg={12}
+        sm={12}
+        xs={12}
+        className="d-flex pt-5 justify-content-center align-items-center"
+      >
+        <Typography className="d-flex fs-30 fw-700 ">
+          Flinko.app to manage and change your daily work activity
+        </Typography>
+      </Grid>
+      <Grid
+        container
+        item
+        lg={12}
         className="d-flex my-4"
         justifyContent="space-around"
         alignItems="center"
