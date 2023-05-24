@@ -1,14 +1,9 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import ButtonComponent from "../../components/atoms/ButtonComponent";
-import RecuritAgent from "../../assests/RecuritAgent.jpg";
 import HumanResourse from "../../assests/hr.jpg";
-import TeamWork from "../../assests/Team Work.jpg";
 import sales from "../../assests/Business.jpg";
-import Analytic from "../../assests/analystic.jpg";
-import WorkPlace from "../../assests/WorkPlace.jpg";
 import Hiring from "../../assests/Hiring.jpg";
-import Interview from "../../assests/Interview.jpg";
 import Profile from "../../assests/Profile.jpg";
 import IT from "../../assests/IT.jpg";
 import Account from "../../assests/Account.jpg";
@@ -104,7 +99,7 @@ function HomePage() {
           borderRadius={"5px"}
           boxShadow="rgb(204, 204, 204) 0px 1px 5px"
         >
-          <img src={Admin} width="100%" height="300px" alt="Admin" />
+          <img src={Admin} width="100%" height="250px" alt="Admin" />
           <Typography className="d-flex fs-26 fw-500 justify-content-center">
             Admin{" "}
           </Typography>
@@ -124,7 +119,7 @@ function HomePage() {
           <img
             src={HumanResourse}
             width="100%"
-            height="300px"
+            height="250px"
             alt=" Human Resourse"
           />
           <Typography className="d-flex fs-26 fw-500 justify-content-center">
@@ -146,7 +141,7 @@ function HomePage() {
           <img
             src={Hiring}
             width="100%"
-            height="300px"
+            height="250px"
             alt="Admin Department"
           />
           <Typography className="d-flex fs-26 fw-500 justify-content-center">
@@ -165,7 +160,7 @@ function HomePage() {
           borderRadius={"5px"}
           boxShadow="rgb(204, 204, 204) 0px 1px 5px"
         >
-          <img src={IT} width="100%" height="300px" alt="IT Department" />
+          <img src={IT} width="100%" height="250px" alt="IT Department" />
           <Typography className="d-flex fs-26 fw-500 justify-content-center">
             IT Department{" "}
           </Typography>
@@ -182,7 +177,7 @@ function HomePage() {
           borderRadius={"5px"}
           boxShadow="rgb(204, 204, 204) 0px 1px 5px"
         >
-          <img src={Account} width="100%" height="300px" alt="Account" />
+          <img src={Account} width="100%" height="250px" alt="Account" />
           <Typography className="d-flex fs-26 fw-500 justify-content-center">
             Account{" "}
           </Typography>
@@ -202,7 +197,7 @@ function HomePage() {
           <img
             src={ProjectManagement}
             width="100%"
-            height="300px"
+            height="250px"
             alt="Project Management"
           />
           <Typography className="d-flex fs-26 fw-500 justify-content-center">
@@ -224,7 +219,7 @@ function HomePage() {
           <img
             src={EmployeeManagement}
             width="100%"
-            height="300px"
+            height="250px"
             alt="Employee Management"
           />
           <Typography className="d-flex fs-26 fw-500 justify-content-center">
@@ -246,7 +241,7 @@ function HomePage() {
           <img
             src={ReportingManager}
             width="100%"
-            height="300px"
+            height="250px"
             alt="Reporting Manager"
           />
           <Typography className="d-flex fs-26 fw-500 justify-content-center">
@@ -265,7 +260,7 @@ function HomePage() {
           borderRadius={"5px"}
           boxShadow="rgb(204, 204, 204) 0px 1px 5px"
         >
-          <img src={sales} width="100%" height="300px" alt="Admin" />
+          <img src={sales} width="100%" height="250px" alt="Admin" />
           <Typography className="d-flex fs-26 fw-500 justify-content-center">
             Sales{" "}
           </Typography>

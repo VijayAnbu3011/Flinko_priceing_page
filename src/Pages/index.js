@@ -16,14 +16,16 @@ const Home = () => {
       <Box>
         <BrowserRouter>
           <Navbar />
-          <Routes>
-            <Route path="*" element={<RouterComponent />} />
-            <Route path="/aboutUs" element={<AboutUs />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/contactUs" element={<ContactUs />} />
-            <Route path="/weOffer" element={<WeOffer />} />
-            <Route path="/" element={<HomePage />} />
-          </Routes>
+          <Box sx={{ minHeight: "calc(100vh - 125px)" }}>
+            <Routes>
+              <Route path="*" element={<RouterComponent />} />
+              <Route path="/aboutUs" element={<AboutUs />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/contactUs" element={<ContactUs />} />
+              <Route path="/weOffer" element={<WeOffer />} />
+              <Route path="/" element={<HomePage />} />
+            </Routes>
+          </Box>
           <Footer />
         </BrowserRouter>
         <Box id="loader" style={{ display: "none" }}>
