@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React, { useEffect } from "react";
-import contact from "../../assests/contact us.png";
+import contact from "../../assests/contact us.jpg";
 
 function AboutUs() {
   useEffect(() => {
@@ -57,7 +57,7 @@ function AboutUs() {
           alignItems="center"
           // height={"70%"}
         >
-          <img src={contact} width={"30%"} height={"80%"} />
+          <img src={contact} width={"50%"} height={"100%"} />
         </Grid>
       </Grid>
     </Box>

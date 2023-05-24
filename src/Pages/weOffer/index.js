@@ -2,7 +2,8 @@ import { Box, Grid, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import Talentacquisition from "../../assests/Talentacquisition.jpg";
 import Lifecycle from "../../assests/Lifecycle.png";
-import Attendance from "../../assests/Attendance.png";
+import Attendance from "../../assests/Attendance.jpg";
+import Fun from "../../assests/Fun.jpg";
 import Performancemanagement from "../../assests/Performancemanagement.png";
 import PayrollandCompliance from "../../assests/PayrollandCompliance.webp";
 
@@ -93,12 +94,7 @@ function WeOffer() {
           className="d-flex flex-row"
           justifyContent="center"
         >
-          <img
-            src={Talentacquisition}
-            alt="logo"
-            width={"80%"}
-            height={"80%"}
-          />
+          <img src={Fun} alt="logo" width={"80%"} height={"80%"} />
         </Grid>
         <Grid item lg={6} sm={12} className="ps-5">
           <Typography className="fs-22 fw-bold">Fun & Frolic </Typography>
