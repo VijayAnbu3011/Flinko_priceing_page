@@ -106,8 +106,8 @@ function BussinessRegisteration() {
       }
     }
 
-    setformDataErr((prev) => ({ ...prev, ...errObj }));
-    return Object.values(errObj).every((x) => x === "");
+    setformDataErr(prev => ({ ...prev, ...errObj }));
+    return Object.values(errObj).every(x => x === "");
   };
 
   const getCompanyData = async () => {
@@ -143,7 +143,7 @@ function BussinessRegisteration() {
 
   const [showInputComponent, setShowInputComponent] = useState(false);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -199,7 +199,7 @@ function BussinessRegisteration() {
                         variant="outlined"
                         fullWidth
                         textLabel="Company name"
-                        onChange={(e) => {
+                        onChange={e => {
                           setFormData({
                             ...formData,
                             companyName: { id: 0, label: e.target.value },
@@ -221,10 +221,10 @@ function BussinessRegisteration() {
                       addBtnClick={() => {
                         setShowInputComponent(true);
                       }}
-                      onChange={(value) => {
+                      onChange={value => {
                         setFormData({ ...formData, companyName: value });
                       }}
-                      onInputChange={(value) => {
+                      onInputChange={value => {
                         setFormData({
                           ...formData,
                           companyName: { id: 0, label: value },
@@ -259,7 +259,7 @@ function BussinessRegisteration() {
                 </Grid>
                 <Grid className="mt-2" item xs={12} sm={5.5} md={5.5}>
                   <InputBoxComponent
-                    placeholder="Enter Pan Number"
+                    placeholder="Enter PAN Number"
                     textLabel="PAN"
                     required
                     name="pan"

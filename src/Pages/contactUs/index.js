@@ -31,13 +31,13 @@ function ContactUs() {
     let result = false;
     let obj = { ...contactStateErr };
     if (contactState.employeeName === "") {
-      obj.employeeName = "This Fiels is Required";
+      obj.employeeName = "This Field is Required";
       result = true;
     } else {
       obj.employeeName = "";
     }
     if (contactState.mobileNo === "") {
-      obj.mobileNo = "This Fiels is Required";
+      obj.mobileNo = "This Field is Required";
       result = true;
     } else {
       if (/^\d{10}$/.test(contactState.mobileNo)) {
@@ -48,13 +48,13 @@ function ContactUs() {
       }
     }
     if (contactState.companyName === "") {
-      obj.companyName = "This Fiels is Required";
+      obj.companyName = "This Field is Required";
       result = true;
     } else {
       obj.companyName = "";
     }
     if (contactState.email === "") {
-      obj.email = "This Fiels is Required";
+      obj.email = "This Field is Required";
       result = true;
     } else {
       if (
@@ -67,7 +67,7 @@ function ContactUs() {
       }
     }
     if (contactState.message === "") {
-      obj.message = "This Fiels is Required";
+      obj.message = "This Field is Required";
       result = true;
     } else {
       obj.message = "";
@@ -110,7 +110,7 @@ function ContactUs() {
           <Grid item lg={7} sm={12} xs={12}>
             <Grid item lg={8} sm={12} xs={12}>
               <Typography className="d-flex fs-30 fw-600">
-                Contact US
+                Contact Us
               </Typography>
             </Grid>
             <Grid
@@ -202,7 +202,7 @@ function ContactUs() {
                   onChange={e => {
                     handleChange(e);
                   }}
-                  placeholder="Name"
+                  placeholder="Enter Name"
                   errorText={contactStateErr.employeeName}
                   required
                 />
@@ -215,7 +215,7 @@ function ContactUs() {
                   onChange={e => {
                     handleChange(e);
                   }}
-                  placeholder="E-mail"
+                  placeholder="Enter E-mail ID"
                   errorText={contactStateErr.email}
                   required
                 />
@@ -229,7 +229,7 @@ function ContactUs() {
                     onChange={e => {
                       handleChange(e);
                     }}
-                    placeholder="Phone"
+                    placeholder="Enter Mobile Number"
                     errorText={contactStateErr.mobileNo}
                     required
                   />
@@ -242,7 +242,7 @@ function ContactUs() {
                     onChange={e => {
                       handleChange(e);
                     }}
-                    placeholder="Company Name"
+                    placeholder="Enter Company Name"
                     errorText={contactStateErr?.companyName ?? ""}
                     required
                   />
@@ -250,7 +250,7 @@ function ContactUs() {
               </Grid>
               <Grid item lg={12} sm={12} xs={12} className="my-2">
                 <InputBoxComponent
-                  textLabel="Comment"
+                  textLabel="Comments"
                   name="message"
                   onChange={e => {
                     handleChange(e);
@@ -259,7 +259,7 @@ function ContactUs() {
                   errorText={contactStateErr.message}
                   multiline={true}
                   size="large"
-                  placeholder="Comments"
+                  placeholder="Enter Comments"
                   rows={5}
                   required
                 />

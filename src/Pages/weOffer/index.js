@@ -37,7 +37,7 @@ function WeOffer() {
         <Grid item lg={6} sm={12} className="p-4">
           <Typography className="fs-22 fw-500">Talent Acquisition </Typography>
           <Typography className="fs-18 text-muted ps-3">
-            - hire the right candidate for the right job
+            - Hire the right candidate for the right job
           </Typography>
           <Typography className="fs-18 text-muted ps-3">
             - Simple Hiring Processes
@@ -61,7 +61,7 @@ function WeOffer() {
           className="d-flex flex-column m-5 ps-3"
           justifyContent="flex-start"
         >
-          <Typography className="fs-22 fw-500">Employee lifecycle </Typography>
+          <Typography className="fs-22 fw-500">Employee Lifecycle </Typography>
           <Typography className="fs-18 text-muted ps-3">
             - From hiring to retiring, we make everything easier
           </Typography>
