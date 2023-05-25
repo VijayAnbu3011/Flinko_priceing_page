@@ -77,7 +77,7 @@ function ContactUs() {
   };
   const { addToast } = useToasts();
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setContactState({
       ...contactState,
       [e.target.name]: e.target.value,
@@ -167,7 +167,7 @@ function ContactUs() {
                 <Typography className="d-flex ps-1 pt-4" color="white">
                   <LocationOnIcon sx={{ color: "white" }} />
                   <Typography className="ps-2">
-                    c29,Sector 6,Noida 203101,India
+                    c29, Sector 6, Noida 203101, India
                   </Typography>
                 </Typography>
               </Grid>
@@ -194,7 +194,7 @@ function ContactUs() {
                   textLabel="Name"
                   name="employeeName"
                   value={contactState.employeeName}
-                  onChange={e => {
+                  onChange={(e) => {
                     handleChange(e);
                   }}
                   placeholder="Name"
@@ -207,7 +207,7 @@ function ContactUs() {
                   textLabel="E-mail"
                   name="email"
                   value={contactState.email}
-                  onChange={e => {
+                  onChange={(e) => {
                     handleChange(e);
                   }}
                   placeholder="E-mail"
@@ -221,7 +221,7 @@ function ContactUs() {
                     textLabel="Mobile No"
                     name="mobileNo"
                     value={contactState.mobileNo}
-                    onChange={e => {
+                    onChange={(e) => {
                       handleChange(e);
                     }}
                     placeholder="Phone"
@@ -234,7 +234,7 @@ function ContactUs() {
                     textLabel="Company Name"
                     name="companyName"
                     value={contactState.companyName}
-                    onChange={e => {
+                    onChange={(e) => {
                       handleChange(e);
                     }}
                     placeholder="Company Name"
@@ -247,7 +247,7 @@ function ContactUs() {
                 <InputBoxComponent
                   textLabel="Comment"
                   name="message"
-                  onChange={e => {
+                  onChange={(e) => {
                     handleChange(e);
                   }}
                   value={contactState.message}

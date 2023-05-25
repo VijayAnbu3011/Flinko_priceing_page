@@ -123,7 +123,7 @@ function Pricing() {
                       className="cursor-pointer rounded-3"
                       sx={{
                         background:
-                          state === item.planName ? "#f5f5f5" : "transparent",
+                          state === item.planName ? "#e2f6ff" : "transparent",
                       }}
                       onClick={() => handlePlanChange(item.planName)}
                     >
@@ -139,7 +139,7 @@ function Pricing() {
                         className="position-absolute bg-white rounded-5"
                         sx={{ top: 5, right: 5 }}
                       >
-                        <CheckCircleIcon />
+                        <CheckCircleIcon sx={{ color: "#1181b2" }} />
                       </Box>
                     )}
                   </Box>
@@ -150,8 +150,6 @@ function Pricing() {
                   fullWidth
                   label={`Continue With ${state}`}
                   sx={{
-                    backgroundColor: "#CCC !important",
-                    color: "black",
                     textTransform: "uppercase !important",
                   }}
                   onBtnClick={handleClick}
