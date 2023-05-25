@@ -21,7 +21,7 @@ function Pricing() {
     localStorage.clear();
   }, []);
 
-  const handlePlanChange = (plan) => {
+  const handlePlanChange = plan => {
     setState(plan);
   };
 
@@ -29,7 +29,7 @@ function Pricing() {
     let { data } = await getPlan();
     if (data) {
       let tempArr = {};
-      data?.data?.map((item) => {
+      data?.data?.map(item => {
         tempArr = {
           ...tempArr,
           [item.planName]: {
@@ -66,8 +66,7 @@ function Pricing() {
           Pricing
         </Typography>
         <Typography className="fs-5 text-muted container1">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Affordable pricing, comprehensive features
         </Typography>
       </Box>
       <Box className="px-1 px-sm-2 px-md-5">

@@ -4,13 +4,20 @@ import ButtonComponent from "../../components/atoms/ButtonComponent";
 import HumanResourse from "../../assests/hr.jpg";
 import sales from "../../assests/Business.jpg";
 import Hiring from "../../assests/Hiring.jpg";
-import Profile from "../../assests/Profile.jpg";
+import Carousel0 from "../../assests/Profile.jpg";
+import Carousel1 from "../../assests/carousel1.jpg";
+import Carousel2 from "../../assests/carousel2.jpg";
+import Carousel3 from "../../assests/carousel3.jpg";
+import Carousel4 from "../../assests/carousel4.jpg";
 import IT from "../../assests/IT.jpg";
 import Account from "../../assests/Account.jpg";
 import ProjectManagement from "../../assests/Project Management.jpg";
 import EmployeeManagement from "../../assests/EmployeeManagement.jpg";
 import ReportingManager from "../../assests/Reporting Manager.jpg";
 import Admin from "../../assests/Admin.jpg";
+import CarouselComponent from "../../components/molecules/CarouselComponent";
+
+const carousel = [Carousel0, Carousel1, Carousel2, Carousel3, Carousel4];
 
 function HomePage() {
   useEffect(() => {
@@ -38,7 +45,7 @@ function HomePage() {
             justifyContent="flex-start"
             alignItems="flex-end"
           >
-            <Typography className="d-flex fs-20 fw-500">
+            <Typography className="fs-5 text-muted">
               Flinko is your own platform to minimize your effort and get their
               desire result with accuracy
             </Typography>
@@ -76,7 +83,17 @@ function HomePage() {
           </Grid>
         </Grid>
         <Grid item lg={4} sm={12} xs={12} className="d-flex ">
-          <img src={Profile} alt="" width={"100%"} height={"350px"} />
+          <CarouselComponent>
+            {carousel.map((item, index) => (
+              <img
+                src={item}
+                alt=""
+                width={"100%"}
+                height={"350px"}
+                key={index}
+              />
+            ))}
+          </CarouselComponent>
         </Grid>
       </Grid>
       <Grid
@@ -87,7 +104,7 @@ function HomePage() {
         xs={12}
         className="d-flex pt-5 justify-content-center align-items-center"
       >
-        <Typography className="d-flex fs-30 fw-700 ">
+        <Typography className="fs-30 fw-400">
           Flinko.app to manage and change your daily work activity
         </Typography>
       </Grid>
@@ -113,7 +130,7 @@ function HomePage() {
         >
           <img src={Admin} width="100%" height="250px" alt="Admin" />
           <Typography className="d-flex fs-26 fw-500 justify-content-center">
-            Admin{" "}
+            Super Admin{" "}
           </Typography>
         </Grid>
         <Grid
@@ -135,7 +152,7 @@ function HomePage() {
             alt=" Human Resourse"
           />
           <Typography className="d-flex fs-26 fw-500 justify-content-center">
-            Human Resourse{" "}
+            Human Resource{" "}
           </Typography>
         </Grid>
         <Grid

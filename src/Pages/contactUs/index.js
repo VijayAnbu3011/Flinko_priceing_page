@@ -7,6 +7,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { SubmitContactDetails } from "../../services/pricing";
 import { useToasts } from "react-toast-notifications";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import Contact from "../../assests/contactus.jpg";
 
 function ContactUs() {
   useEffect(() => {
@@ -77,7 +78,7 @@ function ContactUs() {
   };
   const { addToast } = useToasts();
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setContactState({
       ...contactState,
       [e.target.name]: e.target.value,
@@ -103,29 +104,33 @@ function ContactUs() {
     }
   };
   return (
-    <Box width="100%" className="d-flex">
-      <Grid container item lg={12} className="d-flex m-1 p-3 ">
-        <Grid
-          item
-          lg={12}
-          md={12}
-          sm={12}
-          className="d-flex  justify-content-center align-items-center"
-        >
-          <Typography fontSize={30} fontWeight="bold" className="ps-3">
-            Contact Us
-          </Typography>
-        </Grid>
-        <Grid
-          item
-          lg={12}
-          md={12}
-          sm={12}
-          className="d-flex  justify-content-center align-items-center"
-        >
-          <Typography fontSize={18} fontWeight="300" className="ps-3">
-            Any question or remark? Just write us a message
-          </Typography>
+    <Box className="d-md-flex flex-column m-5 p-1">
+      <Grid container item lg={12}>
+        <Grid container item lg={12} sm={12} xs={12}>
+          <Grid item lg={7} sm={12} xs={12}>
+            <Grid item lg={8} sm={12} xs={12}>
+              <Typography className="d-flex fs-30 fw-600">
+                Contact US
+              </Typography>
+            </Grid>
+            <Grid
+              item
+              lg={8}
+              sm={12}
+              xs={12}
+              className="d-flex pt-5"
+              justifyContent="flex-start"
+              alignItems="flex-end"
+            >
+              <Typography className="fs-5 text-muted">
+                Contact us to get information about anything related to
+                Flinko.app, services, our company
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid item lg={4} sm={12} xs={12} className="d-flex ">
+            <img src={Contact} alt="" width={"100%"} height={"350px"} />
+          </Grid>
         </Grid>
         <Grid
           item
@@ -167,7 +172,7 @@ function ContactUs() {
                 <Typography className="d-flex ps-1 pt-4" color="white">
                   <LocationOnIcon sx={{ color: "white" }} />
                   <Typography className="ps-2">
-                    c29, Sector 6, Noida 203101, India
+                    C29, Sector 6, Noida 203101, India
                   </Typography>
                 </Typography>
               </Grid>
@@ -194,7 +199,7 @@ function ContactUs() {
                   textLabel="Name"
                   name="employeeName"
                   value={contactState.employeeName}
-                  onChange={(e) => {
+                  onChange={e => {
                     handleChange(e);
                   }}
                   placeholder="Name"
@@ -207,7 +212,7 @@ function ContactUs() {
                   textLabel="E-mail"
                   name="email"
                   value={contactState.email}
-                  onChange={(e) => {
+                  onChange={e => {
                     handleChange(e);
                   }}
                   placeholder="E-mail"
@@ -221,7 +226,7 @@ function ContactUs() {
                     textLabel="Mobile No"
                     name="mobileNo"
                     value={contactState.mobileNo}
-                    onChange={(e) => {
+                    onChange={e => {
                       handleChange(e);
                     }}
                     placeholder="Phone"
@@ -234,7 +239,7 @@ function ContactUs() {
                     textLabel="Company Name"
                     name="companyName"
                     value={contactState.companyName}
-                    onChange={(e) => {
+                    onChange={e => {
                       handleChange(e);
                     }}
                     placeholder="Company Name"
@@ -247,7 +252,7 @@ function ContactUs() {
                 <InputBoxComponent
                   textLabel="Comment"
                   name="message"
-                  onChange={(e) => {
+                  onChange={e => {
                     handleChange(e);
                   }}
                   value={contactState.message}

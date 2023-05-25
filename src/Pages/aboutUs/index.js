@@ -17,7 +17,6 @@ function AboutUs() {
           className="d-flex mt-2"
           justifyContent="center"
           alignItems="center"
-          // height={"10%"}
         >
           <Typography className="d-flex fs-30 fw-700">Our Team</Typography>
         </Grid>
@@ -30,7 +29,7 @@ function AboutUs() {
           justifyContent="center"
           alignItems="center"
         >
-          <Typography className="d-flex fs-30 fw-400 px-3">
+          <Typography className="fs-5 text-muted ps-3">
             The strength of the team is each individual member.
           </Typography>
         </Grid>
@@ -43,7 +42,7 @@ function AboutUs() {
           justifyContent="center"
           alignItems="center"
         >
-          <Typography className="d-flex fs-30 fw-400 px-3">
+          <Typography className="fs-5 text-muted ps-3">
             The strength of each member is the team.
           </Typography>
         </Grid>
