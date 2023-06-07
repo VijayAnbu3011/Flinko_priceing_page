@@ -90,6 +90,7 @@ function CheckoutPage() {
                 planName: formData.PlanName,
                 employeeInfoId: formData.employeeInfoId,
                 totalAmount: formData.amount.toString(),
+                url: process.env.REACT_APP_WEB_APPLIATION_DOMAIN,
               };
 
               const { data, errRes } = await paymentVerification(verifyPayload);
