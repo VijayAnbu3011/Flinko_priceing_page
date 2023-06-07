@@ -2,7 +2,6 @@ import axios from "axios";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
 
 const baseURL = `${process.env.REACT_APP_DOMAIN}`;
-// const baseURL = `http://10.10.20.109:9191/api/v1/`;
 
 const axiosInstance = axios.create({
   baseURL,
