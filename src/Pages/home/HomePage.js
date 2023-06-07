@@ -69,7 +69,10 @@ function HomePage() {
                 height="10%"
               >
                 <a
-                  href="http://10.10.20.13:3300/auth/register"
+                  href={
+                    process.env.REACT_APP_WEB_APPLIATION_DOMAIN +
+                    `auth/register`
+                  }
                   className="text-decoration-none"
                 >
                   <ButtonComponent
