@@ -5,6 +5,7 @@ import contact from "../../assests/contact us.jpg";
 function AboutUs() {
   useEffect(() => {
     window.scrollTo(0, 0);
+    console.log("testing");
   }, []);
   return (
     <Box className="d-flex">
