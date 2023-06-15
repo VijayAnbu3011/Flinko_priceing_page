@@ -252,9 +252,7 @@ function Navbar(props) {
             </Typography>
           </a>
           <a
-            href={
-              process.env.REACT_APP_WEB_APPLIATION_DOMAIN + `/auth/register`
-            }
+            href={process.env.REACT_APP_WEB_APPLIATION_DOMAIN + `auth/register`}
             className="text-decoration-none"
           >
             <ButtonComponent
