@@ -26,7 +26,7 @@ function Navbar(props) {
   const [activeTitle, setactiveTitle] = useState("");
 
   const handleDrawerToggle = () => {
-    setDrawer((prestate) => !prestate);
+    setDrawer(prestate => !prestate);
   };
 
   const { pathname } = useLocation();
@@ -239,7 +239,10 @@ function Navbar(props) {
           width="30%"
           display={{ xs: "none", sm: "none", md: "flex" }}
         >
-          <a href="http://10.10.20.13:3300" className="text-decoration-none">
+          <a
+            href={process.env.REACT_APP_WEB_APPLIATION_DOMAIN}
+            className="text-decoration-none"
+          >
             <Typography
               className="d-flex flex-row  py-2  text-dark text-decoration-none cursor-pointer"
               fontSize={18}
@@ -249,7 +252,9 @@ function Navbar(props) {
             </Typography>
           </a>
           <a
-            href="http://10.10.20.13:3300/auth/register"
+            href={
+              process.env.REACT_APP_WEB_APPLIATION_DOMAIN + `/auth/register`
+            }
             className="text-decoration-none"
           >
             <ButtonComponent
