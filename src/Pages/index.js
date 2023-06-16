@@ -9,6 +9,7 @@ import AboutUs from "./aboutUs";
 import ContactUs from "./contactUs";
 import HomePage from "./home/HomePage";
 import Footer from "./Footer/Footer";
+import Policy from "./privacyPolicy/Policy";
 
 const Home = () => {
   return (
@@ -23,6 +24,7 @@ const Home = () => {
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/contactUs" element={<ContactUs />} />
               <Route path="/weOffer" element={<WeOffer />} />
+              <Route path="/privacyPolicy" element={<Policy />} />
               <Route path="/" element={<HomePage />} />
             </Routes>
           </Box>
